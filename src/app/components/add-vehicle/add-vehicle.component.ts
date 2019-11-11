@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -8,8 +9,11 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddVehicleComponent implements OnInit {
 
+  vehiclePicture: any;
+
   constructor(
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private camera: Camera,
   ) { }
 
   ngOnInit() {}
@@ -26,6 +30,17 @@ export class AddVehicleComponent implements OnInit {
   }
 
   addVehiclePicture(){
-    console.log("Picture Added");
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum:false
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.vehiclePicture = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      console.error(err);
+    });
   }
 }

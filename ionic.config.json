@@ -1,5 +1,7 @@
 {
   "name": "Park N Go",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
