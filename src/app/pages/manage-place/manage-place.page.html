@@ -9,7 +9,7 @@
     <ion-title>Manage Place</ion-title>
     <ion-label
       slot="primary"
-      class="ion-padding"
+      class="ion-padding btn"
       (click)="addPlace()"
       color="primary"
       >Add</ion-label
@@ -18,40 +18,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-list>
-      <ion-item lines="full">
-        <ion-row>
-          <ion-col size="8" class="">
-            <!-- PLACE TITLE AND Short Description -->
-            <ion-label>Ruko Newton Barat No.19</ion-label>
-            <ion-label>Short Description Parking Place</ion-label>
-          </ion-col>
-          <!-- PLACE PICTURE -->
-          <ion-col size="4" class="">
-            <ion-img
-              [src]="'http://www.desertsun.co.uk/blog/images/Apartment%201.jpg'"
-            ></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-row>
-          <ion-col size="8" class="">
-            <!-- PLACE TITLE AND Short Description -->
-            <ion-label>Jl. Taman Newton No.26</ion-label>
-            <ion-label>Short Description Parking Place</ion-label>
-          </ion-col>
-          <!-- PLACE PICTURE -->
-          <ion-col size="4" class="">
-            <ion-img
-              [src]="
-                'https://static3.businessinsider.com/image/5681799ce6183e55008b526d-480/carmel-place-nyc-micro-apartment.jpg'
-              "
-            ></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-list>
-  </ion-grid>
+  <ion-list>
+    <ion-item lines="full" class="list-item">
+      <div class="wrapper-place">
+        <h3 class="place-name">Ruko Newton Barat No.19</h3>
+        <ion-label class="plate">Short Description Parking Place</ion-label>
+      </div>
+      <ion-img
+        style="width: 80px; height: 80px;"
+        src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
+      ></ion-img>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <div class="wrapper-place">
+        <h3 class="place-name">Ruko Newton Barat No.19</h3>
+        <ion-label class="plate">Short Description Parking Place</ion-label>
+      </div>
+      <ion-img
+        style="width: 80px; height: 80px;"
+        src="https://static3.businessinsider.com/image/5681799ce6183e55008b526d-480/carmel-place-nyc-micro-apartment.jpg"
+      ></ion-img>
+      <ion-label class="vehicle-type">Car</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    expand="block"
+    class="add-btn"
+    color="primary"
+    (click)="addPlace()"
+    >Add Place</ion-button
+  >
 </ion-content>

@@ -3,7 +3,7 @@
     <ion-title>Add Vehicle</ion-title>
     <ion-buttons slot="end">
       <ion-button slot="icon-only" (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="close" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -11,49 +11,37 @@
 
 <ion-content class="ion-padding">
   <form #addVehicle>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-label>Vehicle Model</ion-label>
-          <ion-item lines="full">
-            <ion-input type="text" placeholder="Vehicle model" name="vehicleModel"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col>
-          <ion-label>Plate Number</ion-label>
-          <ion-item lines="full">
-            <ion-input type="text" placeholder="Plate number" name="plateNumber"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-        
-      <ion-row>
-        <ion-col>
-          <ion-label>Vehicle Type</ion-label>
-          <ion-item lines="full">
-            <ion-input type="text" placeholder="Type" name="vehicleType"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col>
-          <ion-label>Picture</ion-label>
-          <!-- <ion-item lines="full"> -->
-          <ion-button expand="block" class="ion-margin-top" (click)="addVehiclePicture()">Upload Picture</ion-button>
-          <!-- </ion-item> -->
-        </ion-col>
-      </ion-row>
-  
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" (click)="addVehicleToDB()">Add Vehicle</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-list padding lines="full" class="ion-padding">
+      <ion-item class="input-container">
+        <ion-label style="font-size: 13px;">Vehicle Type</ion-label>
+        <ion-select interface="action-sheet" class="selector">
+          <ion-select-option value="motorcycle" style="font-size:20px"
+            >Motorcycle</ion-select-option
+          >
+          <ion-select-option value="car">Car</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="input-container">
+        <ion-label position="stacked">Vehicle Model</ion-label>
+        <ion-input
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
+      <ion-item class="input-container">
+        <ion-label position="stacked">Plate Number</ion-label>
+        <ion-input
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" class="add-btn"
+      >Add Vehicle</ion-button
+    >
   </form>
-  
 </ion-content>

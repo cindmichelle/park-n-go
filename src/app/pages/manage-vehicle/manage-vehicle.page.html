@@ -9,7 +9,7 @@
     <ion-title>Manage Vehicles</ion-title>
     <ion-label
       slot="primary"
-      class="ion-padding"
+      class="ion-padding btn"
       (click)="addVehicle()"
       color="primary"
       >Add</ion-label
@@ -18,42 +18,27 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-list>
-      <ion-item lines="full" class="surrounding-padding">
-        <ion-row>
-          <ion-col size="8" class="">
-            <!-- CAR MODEL AND PLATE NUMBER -->
-            <ion-label>Pajero</ion-label>
-            <ion-label>B 1 RI</ion-label>
-          </ion-col>
-          <!-- CAR PICTURE -->
-          <ion-col size="4" class="">
-            <ion-img
-              [src]="
-                'https://cdn1-production-images-kly.akamaized.net/FmOMEUOE0I78Bc0ntEqqjbTha4Q=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2432089/original/085299300_1542946342-kdakjasd.jpg'
-              "
-            ></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-      <ion-item lines="full" class="surrounding-padding">
-        <ion-row>
-          <ion-col size="8" class="">
-            <!-- CAR MODEL AND PLATE NUMBER -->
-            <ion-label>Pajero</ion-label>
-            <ion-label>B 1 RI</ion-label>
-          </ion-col>
-          <!-- CAR PICTURE -->
-          <ion-col size="4" class="">
-            <ion-img
-              [src]="
-                'https://cdn1-production-images-kly.akamaized.net/FmOMEUOE0I78Bc0ntEqqjbTha4Q=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2432089/original/085299300_1542946342-kdakjasd.jpg'
-              "
-            ></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-list>
-  </ion-grid>
+  <ion-list>
+    <ion-item lines="full" class="list-item">
+      <div class="wrapper-vehicle">
+        <h3 class="vehicle-name">Honda Supra X</h3>
+        <ion-label class="plate">B 1234 XYZ</ion-label>
+      </div>
+      <ion-label class="vehicle-type">Motorcycles</ion-label>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <div class="wrapper-vehicle">
+        <h3 class="vehicle-name">Range Rover</h3>
+        <ion-label class="plate">B 1234 XYZ</ion-label>
+      </div>
+      <ion-label class="vehicle-type">Car</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    expand="block"
+    class="add-btn"
+    color="primary"
+    (click)="addVehicle()"
+    >Add Vehicle</ion-button
+  >
 </ion-content>

@@ -10,6 +10,8 @@
 }
 
 .input {
+  font-family: 'regular';
+  font-size: 14px;
   margin-top: 20px;
   background-color: white;
   border-radius: 10px;
@@ -20,7 +22,35 @@
 }
 
 .icon {
-  margin-left: 10px;
+  margin-left: 15px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.name {
+  font-size: 18px;
+  color: #2d2d2d;
+}
+
+.address {
+  font-size: 14px;
+  color: #a3a3a3;
+}
+
+.slot {
+  font-size: 20px;
+  color: #ff9933;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.slot-caption {
+  color: #ffa64d;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .card {
@@ -30,24 +60,34 @@
   background-color: white;
   border-radius: 10px;
   padding: 10px;
-  border: 1px rgba(157, 156, 156, 1) solid;
-  -webkit-box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
-  box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
+  // border: 1px rgba(157, 156, 156, 1) solid;
+  // -webkit-box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
+  // -moz-box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
+  // box-shadow: 4px 6px 21px -5px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  border: 0 solid #979797;
+  box-shadow: 1px 3px 10px 0 rgba(0, 0, 0, 0.5);
 }
 .flex {
   display: flex;
   background-color: white;
 }
 
+.bottom-row {
+  align-items: center;
+}
+
+.book {
+  width: 136px;
+}
 .place {
   flex: 2;
 }
 
 .divider {
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.482);
+  background-color: #e3e3e3;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }

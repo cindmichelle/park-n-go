@@ -1,17 +1,70 @@
 .caption {
   font-size: 12px;
-  color: grey;
+  color: white;
   margin-top: 5px;
   margin-bottom: 50px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.button {
-  margin-top: 80px;
+.title {
+  color: white;
+  font-size: 30px;
+  font-family: 'bold';
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.login {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border: 1px #f17800 solid;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 52px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .back {
   margin-top: 0px;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background-repeat: no-repeat;
+  background-image: url('../../../../assets/images/banner.png');
+  background-size: cover;
+  height: 30vh;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 // ion-header.header-md ion-toolbar:first-child {
 //   margin-top: 0;
 // }
+
+ion-content {
+  position: absolute;
+  // top: -20px;
+  left: 0;
+  width: 100vw;
+}
+ion-toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+
+ion-back-button {
+  --color: white;
+}
+
+.input {
+  font-family: 'regular';
+  font-size: 14px;
+}

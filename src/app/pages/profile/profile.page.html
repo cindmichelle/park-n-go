@@ -1,38 +1,39 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border no-shadow class="ion-no-margin ion-no-padding">
+  <ion-toolbar translucent="true">
+    <!-- <ion-back-button
+      slot="start"
+      class="back"
+      defaultHref="/"
+    ></ion-back-button> -->
     <ion-title>My Profile</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<ion-content fullscreen>
+  <div class="header">
+    <ion-avatar class="ion-margin-start avatar">
+      <img
+        class="avatar"
+        src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+      />
+    </ion-avatar>
+    <div class="info">
+      <h2 class="name">Cindy Michelle</h2>
+      <ion-label class="email">cindy.michelle@gmail.com</ion-label>
+    </div>
+  </div>
   <ion-grid>
     <ion-col>
-      <ion-card class="ion-padding card">
-        <ion-row align-items-center justify-content-center>
-          <ion-avatar align-items-center justify-content-center>
-            <img src="https://png.pngtree.com/svg/20170508/63b089ad9c.svg" />
-          </ion-avatar>
-        </ion-row>
-        <ion-row align-items-center justify-content-center>
-          <h2>Cindy Michelle</h2>
-        </ion-row>
-        <ion-row align-items-center justify-content-center>
-          <ion-label>cindy.michelle@gmail.com</ion-label>
-        </ion-row>
-      </ion-card>
-      <ion-card class="ion-padding card">
-        <ion-list>
-          <ion-item routerLink="/account/manage-vehicle">
-            <ion-label>
-              <h2>Manage Vehicle</h2>
-            </ion-label>
-          </ion-item>
-          <ion-item routerLink="/account/manage-place">
-            <ion-label>
-              <h2>Manage Places</h2>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+      <ion-card class="card">
+        <ion-item routerLink="/account/manage-vehicle">
+          <ion-label class="list">
+            <h2>Manage Vehicle</h2>
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="/account/manage-place" lines="none">
+          <ion-label class="list">
+            <h2>Manage Places</h2>
+          </ion-label>
+        </ion-item>
       </ion-card>
     </ion-col>
   </ion-grid>

@@ -3,7 +3,7 @@
     <ion-title>Add Place</ion-title>
     <ion-buttons slot="end">
       <ion-button slot="icon-only" (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="close" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -11,67 +11,62 @@
 
 <ion-content class="ion-padding">
   <form #addVehicle>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-label>Place Name</ion-label>
-          <ion-item lines="full">
-            <ion-input
-              type="text"
-              placeholder="Place Name"
-              name="placeName"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+    <ion-list padding lines="full" class="ion-padding">
+      <ion-item class="input-container">
+        <ion-label position="stacked">Area Name</ion-label>
+        <ion-input
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <ion-label>Address</ion-label>
-          <ion-item lines="full">
-            <ion-input
-              type="text"
-              placeholder="Jl. Scientia Square Park"
-              name="placeAdress"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+      <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-textarea required class="input"></ion-textarea>
+      </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <ion-label>Capacity</ion-label>
-          <ion-item lines="full">
-            <ion-input
-              type="text"
-              placeholder="1 Cars 2 Motorbikes"
-              name="palceCapacity"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+      <ion-item class="input-container">
+        <ion-label position="stacked">Price per hour</ion-label>
+        <ion-input
+          class="input"
+          required
+          inputmode="numeric"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <ion-label>Picture</ion-label>
-          <!-- <ion-item lines="full"> -->
-          <ion-button
-            expand="block"
-            class="ion-margin-top"
-            (click)="addPlacePicture()"
-            >Upload Picture</ion-button
-          >
-          <!-- </ion-item> -->
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" (click)="addPlaceToDB()"
-            >Add Place</ion-button
-          >
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+      <ion-item class="input-container">
+        <ion-label position="stacked">Location ***put map here***</ion-label>
+        <ion-input
+          class="input"
+          required
+          inputmode="numeric"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
+      <ion-item class="input-container">
+        <ion-label position="stacked"
+          >Upload Picture **need more info**</ion-label
+        >
+        <ion-input
+          class="input"
+          required
+          inputmode="numeric"
+          oninput="handleFirstNameValue(event)"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" color="tertiary" type="submit" class="upload-btn"
+      >Upload from Gallery</ion-button
+    >
+    <ion-button
+      expand="block"
+      type="submit"
+      class="add-btn"
+      [routerLink]="['/', 'tabs', 'parking']"
+      >Add Place</ion-button
+    >
   </form>
 </ion-content>

@@ -8,26 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-place.page.scss'],
 })
 export class ManagePlacePage implements OnInit {
+  constructor(private modalCtrl: ModalController) {}
 
-  constructor(
-    private modalCtrl: ModalController,
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addPlace() {
-    console.log("Add button clicked!")
+    console.log('Add button clicked!');
 
     this.showModal();
   }
 
   async showModal() {
     const modalAdd = await this.modalCtrl.create({
-      component: AddPlaceComponent
-    })
+      component: AddPlaceComponent,
+    });
 
     await modalAdd.present();
   }
-
 }

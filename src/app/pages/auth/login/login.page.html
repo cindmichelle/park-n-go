@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border no-shadow class="ion-no-margin ion-no-padding">
+  <ion-toolbar translucent="true">
     <ion-back-button
       slot="start"
       class="back"
@@ -8,19 +8,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding fullscreen>
-  <div>
-    <h1>Login</h1>
-    <h6 class="caption">Enter your email and password to Login.</h6>
+<ion-content fullscreen>
+  <div class="header">
+    <div style="height: 100px;">
+      <h1 class="title">Login</h1>
+      <h6 class="caption">Enter your email and password to Login.</h6>
+    </div>
   </div>
 
   <!-- <form onsubmit="processForm(event)"> -->
-  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+  <ion-list padding lines="full" class="ion-padding">
     <ion-item class="input-container">
       <ion-label position="stacked"
         >Email <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
+        class="input"
         required
         inputmode="email"
         oninput="handleFirstNameValue(event)"
@@ -32,6 +35,7 @@
         >Password <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
+        class="input"
         required
         type="password"
         oninput="handleLastNameValue(event)"
@@ -39,14 +43,12 @@
     </ion-item>
   </ion-list>
 
-  <div class="ion-padding" class="button">
-    <ion-button
-      expand="block"
-      type="submit"
-      class="ion-no-margin"
-      [routerLink]="['/', 'tabs', 'parking']"
-      >Login</ion-button
-    >
-  </div>
+  <ion-button
+    expand="block"
+    type="submit"
+    class="login"
+    [routerLink]="['/', 'tabs', 'parking']"
+    >Login</ion-button
+  >
   <!-- </form> -->
 </ion-content>
