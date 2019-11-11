@@ -16,17 +16,21 @@
     </div>
   </div>
 
-  <!-- <form onsubmit="processForm(event)"> -->
+  <!-- <ion-content onsubmit="processForm(event)"> -->
+  <!-- <form #f="ngForm" (ngSubmit)="onRegister(f)"> -->
   <ion-list lines="full" class="ion-padding" style="margin-bottom:0px">
     <ion-item class="input-container">
       <ion-label position="stacked"
         >First Name <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
-        class="input"
         required
+        name="fname"
         type="text"
-        oninput="handleFirstNameValue(event)"
+        class="input"
+        placeholder="First Name"
+        [(ngModel)]="user.firstName"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
 
@@ -35,10 +39,13 @@
         >Last Name <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
-        class="input"
         required
+        name="lname"
         type="text"
-        oninput="handleLastNameValue(event)"
+        class="input"
+        placeholder="Last Name"
+        [(ngModel)]="user.lastName"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -47,9 +54,12 @@
       >
       <ion-input
         required
-        class="input"
+        name="email"
         inputmode="email"
-        oninput="handleLastNameValue(event)"
+        class="input"
+        placeholder="your@mail.com"
+        [(ngModel)]="user.email"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -58,9 +68,12 @@
       >
       <ion-input
         required
-        class="input"
+        name="phoneNo"
         type="number"
-        oninput="handleLastNameValue(event)"
+        placeholder="Phone Number"
+        class="input"
+        [(ngModel)]="user.phoneNo"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -68,10 +81,14 @@
         >Password <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
-        class="input"
         required
+        name="pwd"
         type="password"
-        oninput="handleLastNameValue(event)"
+        minlength="6"
+        class="input"
+        placeholder="******"
+        [(ngModel)]="user.password"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -79,27 +96,34 @@
         >Confirm Password <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
-        class="input"
         required
+        name="confirmPwd"
         type="password"
-        oninput="handleLastNameValue(event)"
+        minlength="6"
+        placeholder="******"
+        class="input"
+        [(ngModel)]="user.confirmPassword"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
   </ion-list>
 
   <div class="ion-padding">
-    <div class="conditions-container">
-      <ion-checkbox [(ngModel)]="checkedBtn" slot="start"></ion-checkbox>
-      <ion-label class="conditions-caption"
-        >I agree with the <a href="#">Terms and Conditions</a></ion-label
-      >
-    </div>
     <ion-button
       expand="block"
       type="submit"
-      [disabled]="!checkedBtn"
+      (click)="onRegister()"
+      [disabled]="
+        !(
+          user.firstName &&
+          user.lastName &&
+          user.email &&
+          user.password &&
+          user.confirmPassword &&
+          user.phoneNo
+        ) || user.password != user.confirmPassword
+      "
       class="login"
-      [routerLink]="['/', 'tabs', 'parking']"
       >Create account</ion-button
     >
   </div>

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   image = 'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png';
-  constructor() {}
+  constructor(private authSvc: AuthService) {
+    this.authSvc.getUser().subscribe((res) => {
+      console.log('HOME', res);
+    });
+  }
 }
