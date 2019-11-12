@@ -25,6 +25,8 @@
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "@ionic/storage": "^2.2.0",
+    "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^2.5.4",
     "firebase": "^7.3.0",
     "rxjs": "~6.5.1",
@@ -64,5 +66,10 @@
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "always"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {}
+    }
   }
 }
