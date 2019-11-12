@@ -14,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'history',
-        loadChildren: '../../pages/history/history.module#HistoryPageModule',
+        loadChildren: '../history/history.module#HistoryPageModule',
       },
 
       {

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Add Place</ion-title>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only" (click)="closeModal()">
+      <ion-button slot="icon-only">
         <ion-icon name="close" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,10 +15,10 @@
       <ion-item class="input-container">
         <ion-label position="stacked">Area Name</ion-label>
         <ion-input
-          class="input"
-          required
-          inputmode="text"
-          oninput="handleFirstNameValue(event)"
+                class="input"
+                required
+                inputmode="text"
+                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
 
@@ -30,43 +30,43 @@
       <ion-item class="input-container">
         <ion-label position="stacked">Price per hour</ion-label>
         <ion-input
-          class="input"
-          required
-          inputmode="numeric"
-          oninput="handleFirstNameValue(event)"
+                class="input"
+                required
+                inputmode="numeric"
+                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">Location ***put map here***</ion-label>
         <ion-input
-          class="input"
-          required
-          inputmode="numeric"
-          oninput="handleFirstNameValue(event)"
+                class="input"
+                required
+                inputmode="numeric"
+                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
       <ion-item class="input-container">
         <ion-label position="stacked"
-          >Upload Picture **need more info**</ion-label
+        >Upload Picture **need more info**</ion-label
         >
         <ion-input
-          class="input"
-          required
-          inputmode="numeric"
-          oninput="handleFirstNameValue(event)"
+                class="input"
+                required
+                inputmode="numeric"
+                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
     </ion-list>
     <ion-button expand="block" color="tertiary" type="submit" class="upload-btn"
-      >Upload from Gallery</ion-button
+    >Upload from Gallery</ion-button
     >
     <ion-button
-      expand="block"
-      type="submit"
-      class="add-btn"
-      [routerLink]="['/', 'tabs', 'parking']"
-      >Add Place</ion-button
+            expand="block"
+            type="submit"
+            class="add-btn"
+            [routerLink]="['/', 'tabs', 'parking']"
+    >Add Place</ion-button
     >
   </form>
 </ion-content>

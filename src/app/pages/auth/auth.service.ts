@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 
-import { map, flatMap } from 'rxjs/operators';
+import { map} from 'rxjs/operators';
 import { User } from 'src/app/model/user.model';
 interface AuthResponse {
   kind: string;

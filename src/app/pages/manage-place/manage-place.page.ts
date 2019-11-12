@@ -1,6 +1,7 @@
-import { AddPlaceComponent } from './../../components/add-place/add-place.component';
-import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ManagePlaceService } from '../../services/manage-place.service'
+import { Place } from '../../model/place.model';
 
 @Component({
   selector: 'app-manage-place',
@@ -8,21 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-place.page.scss'],
 })
 export class ManagePlacePage implements OnInit {
-  constructor(private modalCtrl: ModalController) {}
 
-  ngOnInit() {}
+  places: Place[] | undefined;
+
+  constructor(private routeCtrl: Router, private placeService: ManagePlaceService) {}
+
+  ngOnInit() {
+    this.placeService.getPlaces().subscribe(res => {
+      this.places = res;
+      console.log(this.places);
+    });
+  }
 
   addPlace() {
     console.log('Add button clicked!');
 
-    this.showModal();
-  }
+    this.routeCtrl.navigateByUrl('/add-place');
 
-  async showModal() {
-    const modalAdd = await this.modalCtrl.create({
-      component: AddPlaceComponent,
-    });
-
-    await modalAdd.present();
   }
 }

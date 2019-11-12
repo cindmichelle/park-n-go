@@ -30,6 +30,7 @@ const routes: Routes = [
     path: 'history',
     loadChildren: './pages/history/history.module#HistoryPageModule',
   },
+  { path: 'add-place', loadChildren: './pages/manage-place/add-place/add-place.module#AddPlacePageModule' },
 ];
 
 @NgModule({

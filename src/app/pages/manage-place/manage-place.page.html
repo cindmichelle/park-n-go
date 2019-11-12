@@ -19,27 +19,36 @@
 
 <ion-content>
   <ion-list>
-    <ion-item lines="full" class="list-item">
+    <ion-item lines="full" class="list-item" *ngFor="let p of places">
       <div class="wrapper-place">
-        <h3 class="place-name">Ruko Newton Barat No.19</h3>
-        <ion-label class="plate">Short Description Parking Place</ion-label>
+        <h3 class="place-name">{{ p.areaName }}</h3>
+        <ion-label class="plate">{{ p.address }}</ion-label>
       </div>
       <ion-img
-        style="width: 80px; height: 80px;"
-        src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
+              style="width: 80px; height: 80px;"
+              src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
       ></ion-img>
     </ion-item>
-    <ion-item lines="full" class="list-item">
-      <div class="wrapper-place">
-        <h3 class="place-name">Ruko Newton Barat No.19</h3>
-        <ion-label class="plate">Short Description Parking Place</ion-label>
-      </div>
-      <ion-img
-        style="width: 80px; height: 80px;"
-        src="https://static3.businessinsider.com/image/5681799ce6183e55008b526d-480/carmel-place-nyc-micro-apartment.jpg"
-      ></ion-img>
-      <ion-label class="vehicle-type">Car</ion-label>
-    </ion-item>
+<!--    <ion-item lines="full" class="list-item">-->
+<!--      <div class="wrapper-place">-->
+<!--        <h3 class="place-name">Ruko Newton Barat No.19</h3>-->
+<!--        <ion-label class="plate">Short Description Parking Place</ion-label>-->
+<!--      </div>-->
+<!--      <ion-img-->
+<!--        style="width: 80px; height: 80px;"-->
+<!--        src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"-->
+<!--      ></ion-img>-->
+<!--    </ion-item>-->
+<!--    <ion-item lines="full" class="list-item">-->
+<!--      <div class="wrapper-place">-->
+<!--        <h3 class="place-name">Ruko Newton Barat No.19</h3>-->
+<!--        <ion-label class="plate">Short Description Parking Place</ion-label>-->
+<!--      </div>-->
+<!--      <ion-img-->
+<!--        style="width: 80px; height: 80px;"-->
+<!--        src="https://static3.businessinsider.com/image/5681799ce6183e55008b526d-480/carmel-place-nyc-micro-apartment.jpg"-->
+<!--      ></ion-img>-->
+<!--    </ion-item>-->
   </ion-list>
   <ion-button
     expand="block"
