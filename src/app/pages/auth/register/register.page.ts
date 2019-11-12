@@ -1,3 +1,4 @@
+import { AsyncStorageService } from './../../../native/async-storage.service';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -24,29 +25,31 @@ export class RegisterPage implements OnInit {
     private authSvc: AuthService,
     private router: Router,
     private toastCtrl: ToastController,
+    private storage: AsyncStorageService,
   ) {}
 
   ngOnInit() {}
 
   async onRegister() {
-    console.log('user', this.user);
     this.authSvc.signup(this.user.email, this.user.password).subscribe(
       async (resp) => {
-        if (resp.idToken) {
-          const newUser: Omit<User, 'id'> = {
-            firstName: this.user.firstName,
-            lastName: this.user.lastName,
-            email: this.user.email,
-            phoneNo: this.user.phoneNo,
-            vehicles: [],
-            places: [],
-          };
+        try {
+          if (resp.idToken) {
+            const newUser: User = {
+              firstName: this.user.firstName,
+              lastName: this.user.lastName,
+              email: this.user.email,
+              phoneNo: this.user.phoneNo,
+            };
 
-          await this.authSvc.addNewUser(newUser);
+            await this.authSvc.addNewUser(newUser);
 
-          console.log('response : ', resp);
-          await this.presentSuccessToast();
-          this.router.navigateByUrl('/tabs/parking');
+            await this.storage.set('token', this.user.email);
+            await this.presentSuccessToast();
+            this.router.navigateByUrl('/tabs/parking');
+          }
+        } catch (error) {
+          console.log(error);
         }
       },
       (errorResp) => {

@@ -1,4 +1,6 @@
+import { AsyncStorageService } from './../../native/async-storage.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  constructor(private storage: AsyncStorageService, private router: Router) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  async onLogOut() {
+    await this.storage.delete('token');
+    this.router.navigateByUrl('/auth');
   }
-
 }

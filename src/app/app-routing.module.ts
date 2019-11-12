@@ -24,7 +24,11 @@ const routes: Routes = [
     loadChildren:
       './pages/manage-vehicle/manage-vehicle.module#ManageVehiclePageModule',
   },
-  { path: 'account/manage-place', loadChildren: './pages/manage-place/manage-place.module#ManagePlacePageModule' },
+  {
+    path: 'account/manage-place',
+    loadChildren:
+      './pages/manage-place/manage-place.module#ManagePlacePageModule',
+  },
   { path: 'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
   {
     path: 'history',
