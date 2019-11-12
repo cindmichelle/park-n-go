@@ -23,10 +23,12 @@
         >Email <ion-text color="danger">*</ion-text></ion-label
       >
       <ion-input
-        class="input"
         required
+        class="input"
         inputmode="email"
-        oninput="handleFirstNameValue(event)"
+        placeholder="your@mail.com"
+        [(ngModel)]="input.email"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
 
@@ -38,16 +40,14 @@
         class="input"
         required
         type="password"
-        oninput="handleLastNameValue(event)"
+        placeholder="******"
+        [(ngModel)]="input.password"
+        [ngModelOptions]="{ standalone: true }"
       ></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-button
-    expand="block"
-    type="submit"
-    class="login"
-    [routerLink]="['/', 'tabs', 'parking']"
+  <ion-button expand="block" type="submit" class="login" (click)="onLogin()"
     >Login</ion-button
   >
   <!-- </form> -->

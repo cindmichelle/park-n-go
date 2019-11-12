@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 
-import { map, flatMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/model/user.model';
 interface AuthResponse {
   kind: string;
@@ -81,6 +81,8 @@ export class AuthService {
 
     const response = this.http.post<AuthResponse>(endpoint, body);
     console.log(response);
+
+    return response;
   }
 
   logout() {

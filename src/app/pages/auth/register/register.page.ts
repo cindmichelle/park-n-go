@@ -29,7 +29,6 @@ export class RegisterPage implements OnInit {
   ngOnInit() {}
 
   async onRegister() {
-    console.log('user', this.user);
     this.authSvc.signup(this.user.email, this.user.password).subscribe(
       async (resp) => {
         if (resp.idToken) {
