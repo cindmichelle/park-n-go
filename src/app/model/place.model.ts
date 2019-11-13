@@ -1,3 +1,4 @@
+import { Place } from './place.model';
 export interface Place {
   areaName: string;
   address: string;
@@ -6,3 +7,5 @@ export interface Place {
   locLongitude: string;
   location: string;
 }
+
+export type PlaceViewModel = Place & { id: string };

@@ -1,39 +1,78 @@
-import { Storage } from '@ionic/storage';
+import { PlaceViewModel } from './../model/place.model';
+import { VehicleViewModel } from './../model/vehicle.model';
 import { Observable } from 'rxjs';
 import { UserViewModel } from './../model/user.model';
-import { AsyncStorageService } from './../native/async-storage.service';
 import { User } from 'src/app/model/user.model';
+import { Place } from 'src/app/model/place.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { Vehicle } from '../model/vehicle.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  email?: string;
-  userObservable: Observable<UserViewModel[]> = [];
+  // loggedUserToken: string;
+  userObservable: Observable<UserViewModel[]>;
+  vehiclesObservable: Observable<VehicleViewModel[]>;
+  placesObservable: Observable<PlaceViewModel[]>;
 
-  constructor(private storage: Storage, private db: AngularFirestore) {
-    this.storage.get('token').then((value) => {
-      this.email = value;
+  constructor(private db: AngularFirestore) {}
 
-      const collection = this.db.collection<User>('users', (ref) =>
-        ref.where('email', '==', this.email).limit(1),
-      );
+  getAllUserInfo(key: string) {
+    const userCollection = this.db.collection<User>('users', (ref) =>
+      ref.where('email', '==', key).limit(1),
+    );
 
-      this.userObservable = collection.snapshotChanges().pipe(
-        map((actions) => {
-          return actions.map((a) => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          });
-        }),
-      );
-    });
+    this.userObservable = userCollection.snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      }),
+    );
+
+    const vehiclesCollection = this.db.collection<Vehicle>('vehicles', (ref) =>
+      ref.where('email', '==', key).limit(1),
+    );
+
+    this.vehiclesObservable = vehiclesCollection.snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      }),
+    );
+
+    const placesCollection = this.db.collection<Place>('places', (ref) =>
+      ref.where('email', '==', key).limit(1),
+    );
+
+    this.placesObservable = placesCollection.snapshotChanges().pipe(
+      map((actions) => {
+        return actions.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      }),
+    );
   }
+
   getUser() {
     return this.userObservable;
+  }
+
+  getVehicles() {
+    return this.vehiclesObservable;
+  }
+
+  getPlaces() {
+    return this.placesObservable;
   }
 }

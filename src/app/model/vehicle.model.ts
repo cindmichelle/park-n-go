@@ -4,3 +4,7 @@ export interface Vehicle {
   plateNo: string;
   email: string;
 }
+
+export type VehicleViewModel = Vehicle & {
+  id: string;
+};
