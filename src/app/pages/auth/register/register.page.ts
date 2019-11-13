@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { AsyncStorageService } from './../../../native/async-storage.service';
-=======
->>>>>>> init firestore, firebase Auth, connect backend register, and add new user firestore
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -28,16 +25,12 @@ export class RegisterPage implements OnInit {
     private authSvc: AuthService,
     private router: Router,
     private toastCtrl: ToastController,
-<<<<<<< HEAD
     private storage: AsyncStorageService,
-=======
->>>>>>> init firestore, firebase Auth, connect backend register, and add new user firestore
   ) {}
 
   ngOnInit() {}
 
   async onRegister() {
-<<<<<<< HEAD
     this.authSvc.signup(this.user.email, this.user.password).subscribe(
       async (resp) => {
         try {
@@ -57,26 +50,6 @@ export class RegisterPage implements OnInit {
           }
         } catch (error) {
           console.log(error);
-=======
-    console.log('user', this.user);
-    this.authSvc.signup(this.user.email, this.user.password).subscribe(
-      async (resp) => {
-        if (resp.idToken) {
-          const newUser: Omit<User, 'id'> = {
-            firstName: this.user.firstName,
-            lastName: this.user.lastName,
-            email: this.user.email,
-            phoneNo: this.user.phoneNo,
-            vehicles: [],
-            places: [],
-          };
-
-          await this.authSvc.addNewUser(newUser);
-
-          console.log('response : ', resp);
-          await this.presentSuccessToast();
-          this.router.navigateByUrl('/tabs/parking');
->>>>>>> init firestore, firebase Auth, connect backend register, and add new user firestore
         }
       },
       (errorResp) => {
