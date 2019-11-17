@@ -1,8 +1,10 @@
+import { AsyncStorageService } from './../../../native/async-storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ManagePlaceService } from '../../../services/manage-place.service';
 import { Place } from '../../../model/place.model';
 import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-place',
@@ -12,20 +14,22 @@ import { NgForm } from '@angular/forms';
 
 export class AddPlacePage implements OnInit {
 
-  places: Place = {
-    areaName: '',
-    address: '',
-    email: '',
-    pricePerHour: 0,
-    locLatitude: '',
-    locLongitude: '',
-  };
+    places: Place = {
+      areaName: '',
+      address: '',
+      email: '',
+      pricePerHour: 0,
+      locLatitude: '',
+      locLongitude: '',
+    };
 
   @ViewChild('addPlace', { static: true }) form!: NgForm;
+  private emailUser!: string;
 
-  constructor(private placeService: ManagePlaceService, private navCtrl: NavController) {}
+  constructor(private placeService: ManagePlaceService, private navCtrl: NavController, private storage: AsyncStorageService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.emailUser = await this.storage.get('token');
   }
 
   async addPlaceToDB() {
@@ -34,7 +38,7 @@ export class AddPlacePage implements OnInit {
     const pricePerHour = this.form.value.pricePerHour;
     const locLatitude = '-1.10419';
     const locLongitude = '110.41421';
-    const email = 'asd@asd.com';
+    const email = this.emailUser;
 
     this.places = {
       address,

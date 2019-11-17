@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form #addPlace="ngForm">
+  <form #editPlace="ngForm" (ngSubmit)="editPlaceInDB()">
     <ion-list padding lines="full" class="ion-padding">
       <ion-item class="input-container">
         <ion-label position="stacked">Area Name</ion-label>
@@ -20,13 +20,13 @@
                 inputmode="text"
                 oninput="handleFirstNameValue(event)"
                 name="areaName"
-                ngModel
+                [(ngModel)]="areaName"
         ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Address</ion-label>
-        <ion-textarea required class="input" name="address" ngModel></ion-textarea>
+        <ion-textarea required class="input" name="address" [(ngModel)]="address"></ion-textarea>
 
       </ion-item>
 
@@ -38,7 +38,7 @@
                 inputmode="numeric"
                 oninput="handleFirstNameValue(event)"
                 name="pricePerHour"
-                ngModel
+                [(ngModel)]="pricePerHour"
         ></ion-input>
       </ion-item>
 
@@ -71,8 +71,8 @@
             type="submit"
             class="add-btn"
             [routerLink]="['/', 'tabs', 'parking']"
-            (click)="addPlaceToDB()"
-    >Add Place</ion-button
+    >Edit Place</ion-button
     >
+    <ion-button expand="block" color="danger add-btn" (click)="deletePlaceFromDB()">Delete Vehicle</ion-button>
   </form>
 </ion-content>

@@ -1,4 +1,3 @@
-import { VehicleViewModel } from './../../../model/vehicle.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ManageVehicleService } from '../../../services/manage-vehicle.service';
@@ -15,11 +14,12 @@ import { Vehicle } from '../../../model/vehicle.model';
 })
 export class EditVehiclePage implements OnInit {
 
-  vehicleId: VehicleViewModel;
+  
   @ViewChild('editVehicle', { static: true }) form!: NgForm;
   vType!: string;
   vModel!: string;
   plateNo!: string;
+  private vehicleId: string;
 
   constructor(
     private navCtrl: NavController,
@@ -37,7 +37,7 @@ export class EditVehiclePage implements OnInit {
         this.backToManage();
       }
 
-      this.vehicleId = paramMap.get('id');
+      this.vehicleId = paramMap.get('id') + "";
       console.log(this.vehicleId);
 
       const data = this.firestore.doc<Vehicle>('vehicles/' + this.vehicleId);

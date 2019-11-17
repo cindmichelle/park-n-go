@@ -18,8 +18,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item lines="full" class="list-item" *ngFor="let p of places">
+  <ion-list *ngFor="let p of places">
+    <ion-item lines="full" class="list-item" [routerLink]="['/','edit-place', p.id]">
       <div class="wrapper-place">
         <h3 class="place-name">{{ p.areaName }}</h3>
         <ion-label class="plate">{{ p.address }}</ion-label>

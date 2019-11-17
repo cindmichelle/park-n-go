@@ -12,12 +12,12 @@ export class ManagePlaceService {
   private placesCollection: AngularFirestoreCollection<Place>;
   private places!: Observable<Place[]>;
 
-  constructor(db: AngularFirestore) {
-    this.placesCollection = db.collection<Place>('places', ref =>
-      ref.where('email', '==', 'matthewevans1323@gmail.com'));
-  }
+  constructor(private db: AngularFirestore) {}
 
-  getPlaces() {
+  getPlaces(email: string) {
+    this.placesCollection = this.db.collection<Place>('places', ref =>
+      ref.where('email', '==', email));
+
     this.places = this.placesCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
