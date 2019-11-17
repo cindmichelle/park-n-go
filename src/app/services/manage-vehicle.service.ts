@@ -62,7 +62,7 @@ export class ManageVehicleService {
     });
   }
 
-  deleteVehicle(id: string | null){
+  deleteVehicle(id: string){
     return this.vehicleCollection.doc<Vehicle>(id).delete();
   }
 }

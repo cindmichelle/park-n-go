@@ -1,30 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ManagePlaceService } from '../../../services/manage-place.service';
 import { Place } from '../../../model/place.model';
+import { NavController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-place',
   templateUrl: './add-place.page.html',
   styleUrls: ['./add-place.page.scss'],
 })
+
 export class AddPlacePage implements OnInit {
 
-  places: Place[] | undefined;
+  places: Place = {
+    areaName: '',
+    address: '',
+    email: '',
+    pricePerHour: 0,
+    locLatitude: '',
+    locLongitude: '',
+  };
 
-  // @ts-ignore
-  constructor(private placeService: ManagePlaceService) {
-  }
+  @ViewChild('addPlace', { static: true }) form!: NgForm;
+
+  constructor(private placeService: ManagePlaceService, private navCtrl: NavController) {}
 
   ngOnInit() {
   }
 
-  addPlaceToDB() {
-    console.log('Vehicle Added');
-    console.log('Closing Modal');
+  async addPlaceToDB() {
+    const areaName = this.form.value.areaName;
+    const address = this.form.value.address;
+    const pricePerHour = this.form.value.pricePerHour;
+    const locLatitude = '-1.10419';
+    const locLongitude = '110.41421';
+    const email = 'asd@asd.com';
+
+    this.places = {
+      address,
+      areaName,
+      email,
+      locLatitude,
+      locLongitude,
+      pricePerHour,
+    };
+
+    console.log(this.places);
+
+    await this.placeService.addPlace(this.places);
   }
 
   addPlacePicture() {
     console.log('Picture Added');
+  }
+
+  backToManage() {
+    this.navCtrl.navigateBack('account/manage-place');
   }
 
 }

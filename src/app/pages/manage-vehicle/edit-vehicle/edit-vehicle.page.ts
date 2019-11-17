@@ -1,3 +1,4 @@
+import { VehicleViewModel } from './../../../model/vehicle.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ManageVehicleService } from '../../../services/manage-vehicle.service';
@@ -14,7 +15,7 @@ import { Vehicle } from '../../../model/vehicle.model';
 })
 export class EditVehiclePage implements OnInit {
 
-  vehicleId!: string | null;
+  vehicleId: VehicleViewModel;
   @ViewChild('editVehicle', { static: true }) form!: NgForm;
   vType!: string;
   vModel!: string;
@@ -64,7 +65,7 @@ export class EditVehiclePage implements OnInit {
     const plate = this.form.value.plateNo;
     const email = await this.storage.get('token');
 
-    await this.manageVehicleSvc.editVehicle(email, plate, model, type, this.vehicleId);
+    await this.manageVehicleSvc.editVehicle(email, plate, model, type, this.vehicleId.id);
 
     await loading.dismiss();
     this.backToManage();
@@ -76,7 +77,7 @@ export class EditVehiclePage implements OnInit {
     });
     await loading.present();
 
-    await this.manageVehicleSvc.deleteVehicle(this.vehicleId);
+    await this.manageVehicleSvc.deleteVehicle(this.vehicleId.id);
 
     await loading.dismiss();
     this.backToManage();
