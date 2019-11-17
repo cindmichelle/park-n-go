@@ -14,20 +14,12 @@ import { Vehicle } from '../../../model/vehicle.model';
 })
 export class EditVehiclePage implements OnInit {
 
-<<<<<<< HEAD
-  
-=======
->>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
   @ViewChild('editVehicle', { static: true }) form!: NgForm;
   vType!: string;
   vModel!: string;
   plateNo!: string;
-<<<<<<< HEAD
-  private vehicleId: string;
-=======
   private vehicleId!: string;
   private email!: string;
->>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
 
   constructor(
     private navCtrl: NavController,
@@ -46,11 +38,7 @@ export class EditVehiclePage implements OnInit {
         this.backToManage();
       }
 
-<<<<<<< HEAD
-      this.vehicleId = paramMap.get('id') + "";
-=======
       this.vehicleId = paramMap.get('id') + '';
->>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
       console.log(this.vehicleId);
 
       const data = this.firestore.doc<Vehicle>('vehicles/' + this.vehicleId);
@@ -90,11 +78,7 @@ export class EditVehiclePage implements OnInit {
     });
     await loading.present();
 
-<<<<<<< HEAD
-    await this.manageVehicleSvc.deleteVehicle(this.vehicleId.id);
-=======
     await this.manageVehicleSvc.deleteVehicle(this.vehicleId, this.email);
->>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
 
     await loading.dismiss();
     this.backToManage();
