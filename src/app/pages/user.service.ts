@@ -36,7 +36,7 @@ export class UserService {
     );
 
     const vehiclesCollection = this.db.collection<Vehicle>('vehicles', (ref) =>
-      ref.where('email', '==', key).limit(1),
+      ref.where('email', '==', key),
     );
 
     this.vehiclesObservable = vehiclesCollection.snapshotChanges().pipe(

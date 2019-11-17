@@ -1,68 +1,70 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Vehicle } from '../model/vehicle.model';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Vehicle, VehicleViewModel } from '../model/vehicle.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AsyncStorageService } from '../native/async-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ManageVehicleService {
 
-  private vehicleCollection: AngularFirestoreCollection<Vehicle>;
-  private vehicles!: Observable<Vehicle[]>;
+  private vehiclesObservable!: Observable<VehicleViewModel[]>;
 
-  constructor(db: AngularFirestore, private storage: AsyncStorageService) {
-    this.vehicleCollection = db.collection<Vehicle>('vehicles', ref =>
-      ref.where('email', '==', 'asd@asd.com'),
+  constructor(private db: AngularFirestore) {
+  }
+
+  getVehicles(email: string) {
+    const vehicleCollection = this.db.collection<Vehicle>('vehicles', (ref) =>
+      ref.where('email', '==', email),
     );
-  }
 
-  async getEmailUser() {
-    await this.storage.get('token');
+    console.log('Manage Vehicle Service getVehicles', vehicleCollection);
 
-    // return this.db.collection<Vehicle>('vehicles', ref =>
-    //   ref.where('email', '==', this.getEmailUser()),
-    // );
-  }
-
-  async getVehicles() {
-    this.vehicles = await this.vehicleCollection.snapshotChanges().pipe(
+    this.vehiclesObservable = vehicleCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
           return { id, ...data };
-          // return { ...data };
         });
       }),
     );
 
-    return this.vehicles;
+    console.log('Manage Vehicle Service getVehicles', this.vehiclesObservable);
+
+    return this.vehiclesObservable;
   }
 
   addVehicles(emailOwner: string, plate: string, model: string, type: string) {
-    return this.vehicleCollection.add({
-      vehicleType: type === 'car' ? 'Car' : 'Motorcycle',
+    const vehicleCollection = this.db.collection<Vehicle>('vehicles', (ref) =>
+      ref.where('email', '==', emailOwner),
+    );
+
+    return vehicleCollection.add({
+      vehicleType: type === 'Car' ? 'Car' : 'Motorcycle',
       vehicleModel: model,
       email: emailOwner,
       plateNo: plate,
     });
   }
 
-  editVehicle(emailOwner: string, plate: string, model: string, type: string, id: string | null) {
+  editVehicle(emailOwner: string, plate: string, model: string, type: string, id: string) {
     console.log('Edit Vehicle Service');
-    // @ts-ignore
-    return this.vehicleCollection.doc<Vehicle>(id).update({
+    this.db.doc<Vehicle>('vehicles/' + id).update({
       email: emailOwner,
       vehicleModel: model,
       vehicleType: type === 'Car' ? 'Car' : 'Motorcycle',
-      plateNo: plate
+      plateNo: plate,
     });
   }
 
+<<<<<<< HEAD
   deleteVehicle(id: string){
     return this.vehicleCollection.doc<Vehicle>(id).delete();
+=======
+  deleteVehicle(id: string, email: string) {
+    return this.db.doc('vehicles/' + id).delete();
+>>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
   }
 }

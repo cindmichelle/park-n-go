@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManageVehicleService } from '../../services/manage-vehicle.service';
-import { Vehicle } from '../../model/vehicle.model';
+import { Vehicle, VehicleViewModel } from '../../model/vehicle.model';
+import { AsyncStorageService } from '../../native/async-storage.service';
 
 @Component({
   selector: 'app-manage-vehicle',
@@ -10,30 +11,29 @@ import { Vehicle } from '../../model/vehicle.model';
 })
 export class ManageVehiclePage implements OnInit {
 
-  vehicleList: Vehicle[] = [];
+  vehicleList: VehicleViewModel[] = [];
 
   constructor(
     private router: Router,
-    private manageVehicleSvc: ManageVehicleService
+    private manageVehicleSvc: ManageVehicleService,
+    private storage: AsyncStorageService,
   ) {
   }
 
   async ngOnInit() {
-    (await this.manageVehicleSvc.getVehicles()).subscribe(res => {
+    const email = await this.storage.get('token');
+
+    console.log('ngOnInit', email);
+
+    this.manageVehicleSvc.getVehicles(email).subscribe( res => {
       this.vehicleList = res;
-      console.log('Manage Vehicle Page', this.vehicleList);
+      console.log(this.vehicleList);
     });
-    // this.vehicleList = this.manageVehicleSvc.getVehicles();
   }
 
   addVehicle() {
     console.log('Add button clicked!');
 
-    this.router.navigateByUrl('add-vehicle');
-  }
-
-  editVehicle(item: Vehicle) {
-    console.log('Edit Vehicle page.ts');
-    console.log(item);
+    this.router.navigateByUrl('add-vehicle').then(r => r);
   }
 }

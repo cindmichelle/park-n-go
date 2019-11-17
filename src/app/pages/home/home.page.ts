@@ -16,10 +16,12 @@ export class HomePage implements OnInit {
   vehicles: VehicleViewModel[] = [];
 
   image = 'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png';
+
   constructor(
     private userService: UserService,
     private storage: AsyncStorageService,
-  ) {}
+  ) {
+  }
 
   async ngOnInit() {
     const token: string = await this.storage.get('token');
