@@ -1,9 +1,20 @@
+import { Platform } from '@ionic/angular';
 import { VehicleViewModel } from './../../model/vehicle.model';
 import { PlaceViewModel } from './../../model/place.model';
 import { AsyncStorageService } from './../../native/async-storage.service';
 import { UserViewModel } from './../../model/user.model';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  // GoogleMapOptions,
+  // CameraPosition,
+  // MarkerOptions,
+  Marker,
+  Environment
+} from '@ionic-native/google-maps/ngx';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +22,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  user: UserViewModel;
+  map!: GoogleMap;
+  user!: UserViewModel;
   places: PlaceViewModel[] = [];
   vehicles: VehicleViewModel[] = [];
 
@@ -20,6 +32,7 @@ export class HomePage implements OnInit {
   constructor(
     private userService: UserService,
     private storage: AsyncStorageService,
+    private platform: Platform,
   ) {
   }
 
@@ -41,6 +54,43 @@ export class HomePage implements OnInit {
     this.userService.getPlaces().subscribe((res) => {
       this.places = res;
       // console.log('LOGGED IN USER FROM ON INIT P', this.places);
+    });
+
+    await this.platform.ready();
+    await this.loadMap();
+
+  }
+
+  loadMap() {
+    Environment.setEnv({
+      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
+      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ'
+    });
+
+    // let mapOptions: GoogleMapOptions = {
+    //   camera: {
+    //      target: {
+    //        lat: 43.0741904,
+    //        lng: -89.3809802
+    //      },
+    //      zoom: 18,
+    //      tilt: 30
+    //    }
+    // };
+
+    this.map = GoogleMaps.create('map_canvas');
+
+    let marker: Marker = this.map.addMarkerSync({
+      title: 'Ionic',
+      icon: 'blue',
+      animation: 'DROP',
+      position: {
+        lat: 43.0741904,
+        lng: -89.3809802
+      }
+    });
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      alert('clicked');
     });
   }
 }

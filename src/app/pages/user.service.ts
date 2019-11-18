@@ -14,9 +14,9 @@ import { Vehicle } from '../model/vehicle.model';
 })
 export class UserService {
   // loggedUserToken: string;
-  userObservable: Observable<UserViewModel[]>;
-  vehiclesObservable: Observable<VehicleViewModel[]>;
-  placesObservable: Observable<PlaceViewModel[]>;
+  userObservable!: Observable<UserViewModel[]>;
+  vehiclesObservable!: Observable<VehicleViewModel[]>;
+  placesObservable!: Observable<PlaceViewModel[]>;
 
   constructor(private db: AngularFirestore) {}
 

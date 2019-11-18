@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManageVehicleService } from '../../services/manage-vehicle.service';
-import { Vehicle, VehicleViewModel } from '../../model/vehicle.model';
+import { VehicleViewModel } from '../../model/vehicle.model';
 import { AsyncStorageService } from '../../native/async-storage.service';
 
 @Component({

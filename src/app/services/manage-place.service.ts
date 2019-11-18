@@ -9,7 +9,7 @@ import { Place } from '../model/place.model';
 })
 export class ManagePlaceService {
 
-  private placesCollection: AngularFirestoreCollection<Place>;
+  private placesCollection!: AngularFirestoreCollection<Place>;
   private places!: Observable<Place[]>;
 
   constructor(private db: AngularFirestore) {}

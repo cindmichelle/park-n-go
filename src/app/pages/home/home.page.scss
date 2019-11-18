@@ -4,9 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png');
+  // background-image: url('https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png');
   padding-left: 15px;
   padding-right: 15px;
+}
+
+map_canvas {
+  height: 100%;
 }
 
 .input {
