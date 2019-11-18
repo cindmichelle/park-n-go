@@ -59,12 +59,7 @@ export class ManageVehicleService {
     });
   }
 
-<<<<<<< HEAD
-  deleteVehicle(id: string){
-    return this.vehicleCollection.doc<Vehicle>(id).delete();
-=======
   deleteVehicle(id: string, email: string) {
     return this.db.doc('vehicles/' + id).delete();
->>>>>>> e5d993a08cd2af58aba2e27664cebcc994049524
   }
 }
