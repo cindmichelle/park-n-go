@@ -66,7 +66,7 @@ export class EditVehiclePage implements OnInit {
     const plate = this.form.value.plateNo;
     const email = await this.storage.get('token');
 
-    await this.manageVehicleSvc.editVehicle(email, plate, model, type, this.vehicleId);
+    await this.manageVehicleSvc.editVehicle(email, plate, model, type, this.vehicleId.id);
 
     await loading.dismiss();
     this.backToManage();

@@ -5,16 +5,9 @@ import { AsyncStorageService } from './../../native/async-storage.service';
 import { UserViewModel } from './../../model/user.model';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  // CameraPosition,
-  // MarkerOptions,
-  Marker,
-  Environment
-} from '@ionic-native/google-maps/ngx';
+import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, Environment } from '@ionic-native/google-maps/ngx';
+import { GoogleMapOptions } from '@ionic-native/google-maps/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +25,7 @@ export class HomePage implements OnInit {
   constructor(
     private userService: UserService,
     private storage: AsyncStorageService,
-    private platform: Platform,
+    private platform: Platform
   ) {
   }
 
@@ -58,29 +51,29 @@ export class HomePage implements OnInit {
 
     await this.platform.ready();
     await this.loadMap();
-
   }
 
   loadMap() {
+    // This code is necessary for browser
     Environment.setEnv({
-      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
-      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ'
+      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
+      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ'
     });
 
-    let mapOptions: GoogleMapOptions = {
+    const mapOptions: GoogleMapOptions = {
       camera: {
-         target: {
-           lat: 43.0741904,
-           lng: -89.3809802
-         },
-         zoom: 18,
-         tilt: 30
-       }
+        target: {
+          lat: 43.0741904,
+          lng: -89.3809802
+        },
+        zoom: 18,
+        tilt: 30
+      }
     };
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
 
-    let marker: Marker = this.map.addMarkerSync({
+    const marker: Marker = this.map.addMarkerSync({
       title: 'Ionic',
       icon: 'blue',
       animation: 'DROP',
@@ -91,6 +84,10 @@ export class HomePage implements OnInit {
     });
     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       alert('clicked');
+    });
+
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE).subscribe( loc => {
+      console.log(loc[0].target.lat, loc[0].target.lng);
     });
   }
 }
