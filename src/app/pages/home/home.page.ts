@@ -9,7 +9,7 @@ import {
   GoogleMaps,
   GoogleMap,
   GoogleMapsEvent,
-  // GoogleMapOptions,
+  GoogleMapOptions,
   // CameraPosition,
   // MarkerOptions,
   Marker,
@@ -63,22 +63,22 @@ export class HomePage implements OnInit {
 
   loadMap() {
     Environment.setEnv({
-      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
-      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ'
+      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
+      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ'
     });
 
-    // let mapOptions: GoogleMapOptions = {
-    //   camera: {
-    //      target: {
-    //        lat: 43.0741904,
-    //        lng: -89.3809802
-    //      },
-    //      zoom: 18,
-    //      tilt: 30
-    //    }
-    // };
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+         target: {
+           lat: 43.0741904,
+           lng: -89.3809802
+         },
+         zoom: 18,
+         tilt: 30
+       }
+    };
 
-    this.map = GoogleMaps.create('map_canvas');
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
 
     let marker: Marker = this.map.addMarkerSync({
       title: 'Ionic',
