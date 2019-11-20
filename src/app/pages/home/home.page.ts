@@ -25,10 +25,6 @@ export class HomePage implements OnInit {
   locations: Locations[] = [];
   private locLat: any;
   private locLong: any;
-  
-    
-
-   
 
   image = 'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png';
 
@@ -56,10 +52,6 @@ export class HomePage implements OnInit {
       // console.log('LOGGED IN USER FROM ON INIT V', this.vehicles);
     });
 
-    // this.userService.getPlaces().subscribe((res) => {
-    //   this.places = res;
-    //   console.log('LOGGED IN USER FROM ON INIT P', this.places);
-    // });
 
     await this.managePlaceSvc.getAllPlaces().subscribe((res) => {
       this.places = res;
