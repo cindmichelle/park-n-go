@@ -22,8 +22,8 @@ export class EditPlacePage implements OnInit {
     address: '',
     email: '',
     pricePerHour: 0,
-    locLatitude: '',
-    locLongitude: '',
+    locLatitude: 0,
+    locLongitude: 0,
   };
 
   
@@ -67,8 +67,8 @@ export class EditPlacePage implements OnInit {
     const areaName = this.form.value.areaName;
     const address = this.form.value.address;
     const pricePerHour = this.form.value.pricePerHour;
-    const locLatitude = '0';
-    const locLongitude = '0';
+    const locLatitude = 0;
+    const locLongitude = 0;
     const email = await this.storage.get('token');
     
     console.log(areaName, address, pricePerHour , locLatitude, locLongitude, email);

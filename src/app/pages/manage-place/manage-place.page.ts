@@ -14,7 +14,11 @@ export class ManagePlacePage implements OnInit {
 
   places: Place[] | undefined;
 
-  constructor(private routeCtrl: Router, private placeService: ManagePlaceService, private storage: AsyncStorageService, private loadCtrl: LoadingController,) {}
+  constructor(
+    private routeCtrl: Router, 
+    private placeService: ManagePlaceService, 
+    private storage: AsyncStorageService, 
+    private loadCtrl: LoadingController,) {}
 
   async ngOnInit() {
     const loading = await this.loadCtrl.create({
@@ -23,7 +27,7 @@ export class ManagePlacePage implements OnInit {
     await loading.present();
 
     const email = await this.storage.get('token');
-    this.placeService.getPlaces(email).subscribe(res => {
+    this.placeService.getMyPlaces(email).subscribe(res => {
       this.places = res;
       console.log(this.places);
     });

@@ -50,7 +50,7 @@ export class UserService {
     );
 
     const placesCollection = this.db.collection<Place>('places', (ref) =>
-      ref.where('email', '==', key).limit(1),
+      ref.where('email', '==', key),
     );
 
     this.placesObservable = placesCollection.snapshotChanges().pipe(
