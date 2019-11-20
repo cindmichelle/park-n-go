@@ -1,11 +1,12 @@
 import { ManagePlaceService } from './../../../services/manage-place.service';
 import { Place } from './../../../model/place.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, ModalController, NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AsyncStorageService } from '../../../native/async-storage.service';
+import { PickLocationComponent } from '../../../components/pick-location/pick-location.component';
 
 @Component({
   selector: 'app-edit-place',
@@ -15,26 +16,29 @@ import { AsyncStorageService } from '../../../native/async-storage.service';
 export class EditPlacePage implements OnInit {
 
   @ViewChild('editPlace', { static: true }) form!: NgForm;
-  private placeId!: string
-  
+  private placeId!: string;
+
   place: Place = {
     areaName: '',
     address: '',
     email: '',
     pricePerHour: 0,
-    locLatitude: '',
-    locLongitude: '',
+    locLatitude: 0,
+    locLongitude: 0,
   };
+  locLat!: number;
+  locLng!: number;
 
-  
   constructor(
     private navCtrl: NavController,
     private loadCtrl: LoadingController,
     private activatedRoute: ActivatedRoute,
     private storage: AsyncStorageService,
     private firestore: AngularFirestore,
-    private placeService: ManagePlaceService
-  ) { }
+    private placeService: ManagePlaceService,
+    private modalCtrl: ModalController
+  ) {
+  }
 
   async ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -42,7 +46,7 @@ export class EditPlacePage implements OnInit {
         this.backToManage();
       }
 
-      this.placeId = paramMap.get('id') + "";
+      this.placeId = paramMap.get('id') + '';
       console.log(this.placeId);
 
       const data = this.firestore.doc<Place>('places/' + this.placeId);
@@ -58,6 +62,23 @@ export class EditPlacePage implements OnInit {
     });
   }
 
+  async editPlaceLatLng() {
+    const modal = await this.modalCtrl.create({
+      component: PickLocationComponent,
+      // componentProps: {lat: }
+    });
+
+    await modal.present();
+
+    await modal.dismiss((location: { lat: number; lng: number; }) => {
+      console.log(location.lat, location.lng);
+      this.locLat = location.lat;
+      this.locLng = location.lng;
+    }).then( () => {
+      // this.locLatLng = true;
+    });
+  }
+
   async editPlaceInDB() {
     const loading = await this.loadCtrl.create({
       message: 'Editing your place...',
@@ -67,11 +88,11 @@ export class EditPlacePage implements OnInit {
     const areaName = this.form.value.areaName;
     const address = this.form.value.address;
     const pricePerHour = this.form.value.pricePerHour;
-    const locLatitude = '0';
-    const locLongitude = '0';
+    const locLatitude = 0;
+    const locLongitude = 0;
     const email = await this.storage.get('token');
-    
-    console.log(areaName, address, pricePerHour , locLatitude, locLongitude, email);
+
+    console.log(areaName, address, pricePerHour, locLatitude, locLongitude, email);
 
     this.place = {
       areaName,
@@ -80,11 +101,11 @@ export class EditPlacePage implements OnInit {
       pricePerHour,
       locLatitude,
       locLongitude,
-    }
+    };
 
     console.log(this.place);
 
-    await this.placeService.updatePlace(this.place,this.placeId);
+    await this.placeService.updatePlace(this.place, this.placeId);
 
     await loading.dismiss();
     this.backToManage();

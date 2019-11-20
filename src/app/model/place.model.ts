@@ -4,8 +4,8 @@ export interface Place {
   address: string;
   email: string;
   pricePerHour: number;
-  locLatitude: string;
-  locLongitude: string;
+  locLatitude: number;
+  locLongitude: number;
 }
 
 export type PlaceViewModel = Place & { id: string };

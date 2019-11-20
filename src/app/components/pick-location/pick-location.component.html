@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="">
+    <div class="maps">
+      <div id="map_canvas">
+        <div class="bottom_button">
+          <ion-button expand="block" (click)="setLocation()" [disabled]="!mapClick" style="margin-bottom: 10px">Pick This Location</ion-button>
+          <ion-button expand="block" (click)="cancel()" color="danger">Cancel</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

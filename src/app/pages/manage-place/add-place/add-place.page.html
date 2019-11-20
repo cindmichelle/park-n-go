@@ -18,7 +18,6 @@
                 class="input"
                 required
                 inputmode="text"
-                oninput="handleFirstNameValue(event)"
                 name="areaName"
                 ngModel
         ></ion-input>
@@ -36,7 +35,6 @@
                 class="input"
                 required
                 inputmode="numeric"
-                oninput="handleFirstNameValue(event)"
                 name="pricePerHour"
                 ngModel
         ></ion-input>
@@ -48,30 +46,26 @@
                 class="input"
                 required
                 inputmode="numeric"
-                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
       <ion-item class="input-container">
-        <ion-label position="stacked"
-        >Upload Picture **need more info**</ion-label
-        >
+        <ion-label position="stacked">Upload Picture **need more info**</ion-label>
         <ion-input
                 class="input"
                 required
                 inputmode="numeric"
-                oninput="handleFirstNameValue(event)"
         ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" color="tertiary" type="submit" class="upload-btn"
-    >Upload from Gallery</ion-button
-    >
+    <ion-button expand="block" (click)="addPlaceLatLng()">Set Location on Map</ion-button>
+    <ion-button expand="block" color="tertiary" type="submit" class="upload-btn">Upload from Gallery</ion-button>
     <ion-button
             expand="block"
             type="submit"
             class="add-btn"
             [routerLink]="['/', 'account', 'manage-place']"
             (click)="addPlaceToDB()"
+            [disabled]="!locLatLng"
     >Add Place</ion-button
     >
   </form>
