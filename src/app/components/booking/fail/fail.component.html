@@ -1,3 +1,29 @@
-<p>
-  fail works!
-</p>
+<ion-content fullscreen>
+  <div style="display: flex; justify-content: flex-end;">
+    <ion-button fill="clear" (click)="closeModal()">
+      <ion-icon name="close" style="font-size: 40px; margin-top: 20px;">
+      </ion-icon>
+    </ion-button>
+  </div>
+  <div class="logo-container">
+    <img src="../../../../assets/images/failed.png" />
+  </div>
+  <div>
+    <h3 class="title">
+      Booking Failed
+    </h3>
+    <h3 class="subtitle">
+      Please try again later.
+    </h3>
+  </div>
+
+  <div class="btn">
+    <ion-button
+      expand="block"
+      class="try-again-btn"
+      color="danger"
+      (click)="bookingPlace()"
+      >Try Again</ion-button
+    >
+  </div>
+</ion-content>
