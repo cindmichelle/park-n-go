@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button
+        slot="start"
+        defaultHref="/tabs/parking"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Booking Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="full" class="list-item">
+      <div class="wrapper-vehicle">
+        <!-- <h3 class="vehicle-name">{{ v.vehicleModel }}</h3>
+        <ion-label class="plate">{{ v.plateNo }}</ion-label> -->
+        <h3 class="key">Vehicle</h3>
+        <ion-label class="plate">B 123 XYZ</ion-label>
+      </div>
+      <ion-button fill="clear" class="change-vehicle"> Change </ion-button>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <h3 class="key">Arrival</h3>
+      <div class="date-wrapper">
+        <h3 class="date">August 22, 17:00 PM</h3>
+        <ion-button fill="clear" style="margin-left: 0;" class="change-vehicle">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <h3 class="key">Leaving</h3>
+      <div class="date-wrapper">
+        <h3 class="date">August 22, 19:00 PM</h3>
+        <ion-button style="margin-left: 0;" fill="clear" class="change-vehicle">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <h3 class="key">Duration</h3>
+      <h3 class="value">
+        2 Hours
+      </h3>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <h3 class="key">Price per Hour</h3>
+      <h3 class="value">
+        Rp 5.000
+      </h3>
+    </ion-item>
+    <ion-item lines="full" class="list-item">
+      <h3 class="key">Payment</h3>
+      <h3 class="value">
+        Cash
+      </h3>
+    </ion-item>
+  </ion-list>
+  <div class="bottom">
+    <div class="total-wrapper">
+      <h3 class="total">Total Price</h3>
+      <h3 class="total">
+        Rp 10.000
+      </h3>
+    </div>
+    <ion-button
+      expand="block"
+      class="booking-btn"
+      color="primary"
+      (click)="bookingPlace()"
+      >Book Parking</ion-button
+    >
+  </div>
+</ion-content>

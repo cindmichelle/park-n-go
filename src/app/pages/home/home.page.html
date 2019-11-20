@@ -32,7 +32,13 @@
                 </b>
               </h3>
             </ion-label>
-            <ion-button color="secondary" class="book">Book now</ion-button>
+            <ion-button
+              color="secondary"
+              (click)="showBookingConfirmation()"
+              [routerLink]="['/', 'booking']"
+              class="book"
+              >Book now</ion-button
+            >
           </div>
         </div>
       </div>
