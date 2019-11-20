@@ -14,9 +14,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+import { PickLocationComponent } from './components/pick-location/pick-location.component';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, PickLocationComponent],
+  entryComponents: [PickLocationComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

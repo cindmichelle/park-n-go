@@ -93,6 +93,7 @@ export class HomePage implements OnInit {
 
   }
 
+
   loadMap(locLat: number, locLong: number) {
     // This code is necessary for browser
     Environment.setEnv({
@@ -122,6 +123,7 @@ export class HomePage implements OnInit {
         lng: locLong
       }
     });
+    
     currMarker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       alert('Current Location Marker Clicked !');
     });
@@ -171,5 +173,6 @@ export class HomePage implements OnInit {
     //   marker.setSnippet(marker.get("address"));
     //   marker.showInfoWindow();
     // });
+
   }
 }

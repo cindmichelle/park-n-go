@@ -2,9 +2,9 @@ import { AsyncStorageService } from './../../../native/async-storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ManagePlaceService } from '../../../services/manage-place.service';
 import { Place } from '../../../model/place.model';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
-
+import { PickLocationComponent } from '../../../components/pick-location/pick-location.component';
 
 @Component({
   selector: 'app-add-place',
@@ -14,19 +14,32 @@ import { NgForm } from '@angular/forms';
 
 export class AddPlacePage implements OnInit {
 
-    places: Place = {
-      areaName: '',
-      address: '',
-      email: '',
-      pricePerHour: 0,
-      locLatitude: 0,
-      locLongitude: 0,
-    };
+
+  private locLat!: number;
+  private locLng!: number;
+
+  locLatLng = false;
+
+  places: Place = {
+    areaName: '',
+    address: '',
+    email: '',
+    pricePerHour: 0,
+    locLatitude: 0,
+    locLongitude: 0,
+  };
+
 
   @ViewChild('addPlace', { static: true }) form!: NgForm;
   private emailUser!: string;
 
-  constructor(private placeService: ManagePlaceService, private navCtrl: NavController, private storage: AsyncStorageService) {}
+  constructor(
+    private placeService: ManagePlaceService,
+    private navCtrl: NavController,
+    private storage: AsyncStorageService,
+    private modalCtrl: ModalController,
+  ) {
+  }
 
   async ngOnInit() {
     this.emailUser = await this.storage.get('token');
@@ -36,8 +49,10 @@ export class AddPlacePage implements OnInit {
     const areaName = this.form.value.areaName;
     const address = this.form.value.address;
     const pricePerHour = this.form.value.pricePerHour;
-    const locLatitude = -1.10419;
-    const locLongitude = 110.41421;
+
+    const locLatitude = this.locLat;
+    const locLongitude = this.locLng;
+
     const email = this.emailUser;
 
     this.places = {
@@ -58,8 +73,25 @@ export class AddPlacePage implements OnInit {
     console.log('Picture Added');
   }
 
+  async addPlaceLatLng() {
+    const modal = await this.modalCtrl.create({
+      component: PickLocationComponent,
+    });
+
+    await modal.present();
+
+    await modal.onDidDismiss().then((location) => {
+      console.log('add place page ts', location);
+      console.log('add place page ts', location.data.lat, location.data.lng);
+      this.locLat = location.data.lat;
+      this.locLng = location.data.lng;
+    }).then( () => {
+      this.locLatLng = true;
+    });
+  }
+
   backToManage() {
-    this.navCtrl.navigateBack('account/manage-place');
+    this.navCtrl.navigateBack('account/manage-place').then(r => r);
   }
 
 }

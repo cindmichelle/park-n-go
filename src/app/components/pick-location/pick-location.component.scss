@@ -1,0 +1,27 @@
+.maps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //background-image: url('https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png');
+  height: 100%;
+}
+
+#map_canvas{
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  //background-color: red;
+}
+
+.bottom_button{
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  left: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+}

@@ -18,7 +18,6 @@ export class ManageVehicleService {
     const vehicleCollection = this.db.collection<Vehicle>('vehicles', (ref) =>
       ref.where('email', '==', email),
     );
-
     console.log('Manage Vehicle Service getVehicles', vehicleCollection);
 
     this.vehiclesObservable = vehicleCollection.snapshotChanges().pipe(
