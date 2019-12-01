@@ -5,17 +5,19 @@ import { PlaceViewModel } from './../../model/place.model';
 import { AsyncStorageService } from './../../native/async-storage.service';
 import { UserViewModel } from './../../model/user.model';
 import { UserService } from './../user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import {
   GoogleMap,
   GoogleMaps,
   GoogleMapsEvent,
   Marker,
-  Environment,
+  Environment, Geocoder
 } from '@ionic-native/google-maps/ngx';
 import { GoogleMapOptions } from '@ionic-native/google-maps/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Locations } from './../../model/location.model';
+
+declare var google: any;
 
 @Component({
   selector: 'app-home',
@@ -34,6 +36,9 @@ export class HomePage implements OnInit {
   cardAddress = '';
   cardPricePerHour = '';
   cardPlaceId = '';
+  search = '';
+  private googleAutoComplete = new google.maps.places.AutocompleteService();
+  public srchResults = new Array<any>();
 
   image = 'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png';
 
@@ -43,7 +48,10 @@ export class HomePage implements OnInit {
     private platform: Platform,
     private geoLocation: Geolocation,
     private managePlaceSvc: ManagePlaceService,
-  ) {}
+    private ngZone: NgZone,
+  ) {
+    console.log(google);
+  }
 
   async ngOnInit() {
     const token: string = await this.storage.get('token');
@@ -104,7 +112,7 @@ export class HomePage implements OnInit {
     await this.loadMap(this.locLat, this.locLong);
   }
 
- async loadMap(locLat: number, locLong: number) {
+  async loadMap(locLat: number, locLong: number) {
     // This code is necessary for browser
     Environment.setEnv({
       API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
@@ -137,6 +145,30 @@ export class HomePage implements OnInit {
     currMarker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       // alert('Current Location Marker Clicked !');
     });
+  }
+
+  searchChanged() {
+    if (!this.search.trim().length) { return; }
+
+    this.googleAutoComplete.getPlacePredictions({ input: this.search }, (predictions: any[]) => {
+      this.ngZone.run(() => {
+        this.srchResults = predictions;
+      });
+    });
+  }
+
+  async searchClick(place: any) {
+    this.search = '';
+    console.log(place);
+
+    const searchedLocation: any = await Geocoder.geocode({ address: place.description });
+    console.log(searchedLocation[0]);
+    const goToPosition = {
+      target: searchedLocation[0].position,
+      zoom: 20,
+      tilt: 30,
+    };
+    await this.map.moveCamera(goToPosition);
   }
 
   showBookingConfirmation(id: string) {

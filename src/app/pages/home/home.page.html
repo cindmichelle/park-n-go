@@ -3,10 +3,17 @@
     <div class="maps">
       <div id="map_canvas">
         <div class="input">
-          <ion-input class="" placeholder="Search parking area around you ...">
-            <ion-icon name="search" class="icon" slot="start"></ion-icon>
+          <ion-input [(ngModel)]="search" (ionChange)="searchChanged()" class="ion-margin-horizontal" name ="search" type="text" placeholder="Search for parking around you ...">
+<!--            <ion-icon name="search" class="icon" slot="start"></ion-icon>-->
           </ion-input>
+
+          <ion-list class="" *ngIf="search">
+            <ion-item (click)="searchClick(results)" *ngFor="let results of srchResults">
+              {{ results.description }}
+            </ion-item>
+          </ion-list>
         </div>
+
 
         <div class="card" *ngIf="cardAddress && cardAreaName && cardPricePerHour">
           <div class="flex">
