@@ -47,13 +47,11 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     const token: string = await this.storage.get('token');
-
     this.userService.getAllUserInfo(token);
-
     // @ts-ignore
     this.userService.getUser().subscribe((res) => {
       this.user = res[0];
-      // console.log('LOGGED IN USER FROM ON INIT', this.user);
+      console.log('LOGGED IN USER FROM ON INIT', this.user);
     });
 
     // @ts-ignore
