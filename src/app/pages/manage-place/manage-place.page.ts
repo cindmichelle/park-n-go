@@ -1,7 +1,7 @@
 import { AsyncStorageService } from './../../native/async-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ManagePlaceService } from '../../services/manage-place.service'
+import { ManagePlaceService } from '../../services/manage-place.service';
 import { Place } from '../../model/place.model';
 import { LoadingController } from '@ionic/angular';
 
@@ -15,10 +15,11 @@ export class ManagePlacePage implements OnInit {
   places: Place[] | undefined;
 
   constructor(
-    private routeCtrl: Router, 
-    private placeService: ManagePlaceService, 
-    private storage: AsyncStorageService, 
-    private loadCtrl: LoadingController,) {}
+    private routeCtrl: Router,
+    private placeService: ManagePlaceService,
+    private storage: AsyncStorageService,
+    private loadCtrl: LoadingController) {
+  }
 
   async ngOnInit() {
     const loading = await this.loadCtrl.create({
