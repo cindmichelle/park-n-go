@@ -6,6 +6,7 @@ import {
   GoogleMaps, GoogleMapsEvent, Marker,
 } from '@ionic-native/google-maps/ngx';
 import { ModalController, Platform } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-pick-location',
@@ -16,10 +17,13 @@ export class PickLocationComponent implements OnInit {
   map!: GoogleMap;
   private placeLocation!: any;
   mapClick = false;
+  locLat: any;
+  locLong: any;
 
   constructor(
     private platform: Platform,
     private modalCtrl: ModalController,
+    private geoLoc: Geolocation,
   ) {
   }
 
@@ -28,17 +32,26 @@ export class PickLocationComponent implements OnInit {
     await this.loadMapForLoc();
   }
 
-  loadMapForLoc() {
+  async loadMapForLoc() {
     Environment.setEnv({
       API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
       API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
     });
 
+    await this.geoLoc.getCurrentPosition()
+      .then((resp) => {
+        this.locLat = resp.coords.latitude;
+        this.locLong = resp.coords.longitude;
+      })
+      .catch((error: any) => {
+        console.error('Error getting location', error);
+      });
+
     const mapOptions: GoogleMapOptions = {
       camera: {
         target: {
-          lat: 43.0741904,
-          lng: -89.3809802,
+          lat: this.locLat,
+          lng: this.locLong,
         },
         zoom: 18,
         tilt: 30,
