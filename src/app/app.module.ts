@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 
 import { PickLocationComponent } from './components/pick-location/pick-location.component';
 
@@ -35,6 +36,7 @@ import { PickLocationComponent } from './components/pick-location/pick-location.
     SplashScreen,
     Geolocation,
     Camera,
+    LaunchNavigator,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
