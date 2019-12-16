@@ -75,4 +75,16 @@ export class UserService {
   getPlaces() {
     return this.placesObservable;
   }
+
+  editUserProfile(id: string, userEmail: string, userFirstName: string, userLastName: string, userPhoneNo: string) {
+    console.log('editing user info . . .')
+    console.log(id);
+    this.db.doc<User>('users/' + id).update({
+      // email: userEmail,
+      // Email Belum bisa diganti
+      firstName: userFirstName,
+      lastName: userLastName,
+      phoneNo: userPhoneNo,
+    }).then(r => r);
+  }
 }

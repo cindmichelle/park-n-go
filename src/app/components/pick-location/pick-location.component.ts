@@ -92,35 +92,6 @@ export class PickLocationComponent implements OnInit {
     });
   }
 
-  getLocLatLng() {
-    // this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe((loc) => {
-    //   this.mapClick = true;
-    //   console.log('loc', loc);
-    //   console.log('loc[0]', loc[0]);
-    //   console.log('loc[0].lat', loc[0].lat);
-    //   // console.log(loc[0].LatLng.lat, loc[0].LatLng.lng);
-    //   this.map.clear().then(() => {
-    //     this.placeLocation = {
-    //       lat: loc[0].lat,
-    //       lng: loc[0].lng,
-    //     };
-    //     const marker: Marker = this.map.addMarkerSync({
-    //       title: 'Selected Location',
-    //       position: {
-    //         lat: loc[0].lat,
-    //         lng: loc[0].lng,
-    //       },
-    //     });
-    //     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe();
-    //   });
-    // });
-
-    // console.log(this.map.getCameraPosition().target);
-    // const location = this.map.getCameraPosition().target;
-    // this.modalCtrl.dismiss(location).then(r => r);
-    // return this.map.getCameraPosition().target;
-  }
-
   setLocation() {
     this.modalCtrl.dismiss(this.placeLocation);
   }

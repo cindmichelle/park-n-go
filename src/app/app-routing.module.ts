@@ -66,6 +66,10 @@ const routes: Routes = [
     path: 'booking',
     loadChildren: './pages/booking/booking.module#BookingPageModule',
   },
+  { path: 'account/manage-profile',
+    loadChildren: './pages/manage-profile/manage-profile.module#ManageProfilePageModule'
+  },
+
 ];
 
 @NgModule({
