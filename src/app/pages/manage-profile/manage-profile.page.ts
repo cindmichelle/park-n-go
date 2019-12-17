@@ -3,6 +3,10 @@ import { AsyncStorageService } from '../../native/async-storage.service';
 import { UserService } from '../user.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+// import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+// import { AngularFireModule } from '@angular/fire';
+// import { AngularFireDatabaseModule } from '@angular/fire/database';
+// import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-manage-profile',
@@ -21,14 +25,15 @@ export class ManageProfilePage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private storage: AsyncStorageService,
+    private asyncStorage: AsyncStorageService,
     private userService: UserService,
     private loadCtrl: LoadingController,
+    // private camera: Camera,
   ) {
   }
 
   async ngOnInit() {
-    const token: string = await this.storage.get('token');
+    const token: string = await this.asyncStorage.get('token');
     this.userService.getAllUserInfo(token);
     this.userService.getUser().subscribe(res => {
       this.userId = res[0].id;
@@ -61,10 +66,18 @@ export class ManageProfilePage implements OnInit {
 
   editProfilePicture() {
     console.log('EDIT PROFILEEEE !!!!!!!!!!!!!!');
-    console.log('wip asdasd');
+
+  }
+
+  async takePicture() {
+    try {
+      console.log('WIP CAMERA');
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   backToManage() {
-    this.navCtrl.navigateBack('account/profile').then(r => r);
+    this.navCtrl.navigateBack('tabs/profile').then(r => r);
   }
 }
