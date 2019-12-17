@@ -29,6 +29,7 @@ export class EditPlacePage implements OnInit {
   };
   locLat!: number;
   locLng!: number;
+  locLatLng = false;
 
   constructor(
     private navCtrl: NavController,
@@ -65,19 +66,24 @@ export class EditPlacePage implements OnInit {
 
   async editPlaceLatLng() {
     const modal = await this.modalCtrl.create({
-      component: PickLocationComponent,
-      // componentProps: {lat: }
+      component: PickLocationComponent
     });
 
     await modal.present();
 
     await modal.onDidDismiss().then((location) => {
-      console.log('add place page ts', location);
-      console.log('add place page ts', location.data.lat, location.data.lng);
-      this.locLat = location.data.lat;
-      this.locLng = location.data.lng;
-    }).then( () => {
-      // this.locLatLng = true;
+      console.log('edit place page ts', location);
+      if (location.data !== undefined) {
+        console.log('edit place page ts', location.data.lat, location.data.lng);
+        this.locLat = location.data.lat;
+        this.locLng = location.data.lng;
+      } else {
+        console.log('edit location canceled');
+        this.locLat = -6.1753871;
+        this.locLng = 106.8249641;
+      }
+    }).then(() => {
+      this.locLatLng = true;
     });
     // await modal.dismiss((location: { lat: number; lng: number; }) => {
     //   console.log(location.lat, location.lng);

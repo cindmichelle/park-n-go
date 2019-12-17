@@ -83,10 +83,16 @@ export class AddPlacePage implements OnInit {
 
     await modal.onDidDismiss().then((location) => {
       console.log('add place page ts', location);
-      console.log('add place page ts', location.data.lat, location.data.lng);
-      this.locLat = location.data.lat;
-      this.locLng = location.data.lng;
-    }).then( () => {
+      if (location.data !== undefined) {
+        console.log('add place page ts', location.data.lat, location.data.lng);
+        this.locLat = location.data.lat;
+        this.locLng = location.data.lng;
+      } else {
+        console.log('location canceled');
+        this.locLat = -6.1753871;
+        this.locLng = 106.8249641;
+      }
+    }).then(() => {
       this.locLatLng = true;
     });
   }

@@ -165,6 +165,7 @@ export class BookingPage implements OnInit {
       leavingDateTime: this.leavingTime,
       totalPrice: this.totalPrice,
       createdAt: created,
+      ongoing: true,
     });
 
     await this.placeSvc.updateBookedPlace(this.placeId, this.placeBooked);
