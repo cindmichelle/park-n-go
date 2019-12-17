@@ -1,0 +1,90 @@
+-- Merging decision tree log ---
+meta-data#com.google.android.geo.API_KEY
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:1-106
+	android:value
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:58-104
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:6:12-57
+manifest
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+	xmlns:amazon
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:4:1-57
+	package
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:11-46
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:2:1-17:12
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:3:1-59
+application
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:5:1-9:15
+meta-data#com.google.android.gms.version
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:1-113
+	android:value
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:58-111
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:7:12-57
+uses-library#org.apache.http.legacy
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:8:1-79
+	android:required
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:8:53-77
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:8:15-52
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:1-76
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:10:18-74
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:11:1-74
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:11:18-72
+uses-feature#android.hardware.location.gps
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:12:1-61
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:12:15-59
+uses-permission#android.permission.INTERNET
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:13:1-62
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:13:18-60
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:14:1-74
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:14:18-72
+uses-feature#0x00020000
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:15:1-73
+	android:glEsVersion
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:15:15-47
+	android:required
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:15:48-71
+uses-feature#android.hardware.location
+ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:16:1-57
+	android:name
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml:16:15-55
+uses-sdk
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\capacitor-cordova-android-plugins\src\main\AndroidManifest.xml

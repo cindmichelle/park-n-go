@@ -79,5 +79,6 @@ export class ManageProfilePage implements OnInit {
 
   backToManage() {
     this.navCtrl.navigateBack('tabs/profile').then(r => r);
+    console.log('wip asdasd');
   }
 }

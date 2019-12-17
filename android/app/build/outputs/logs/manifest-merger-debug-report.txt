@@ -1,0 +1,491 @@
+-- Merging decision tree log ---
+provider#android.support.v4.content.FileProvider
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:34:9-42:20
+	android:grantUriPermissions
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:38:13-47
+	android:authorities
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:36:13-64
+	android:exported
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:35:13-67
+manifest
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-38:12
+MERGED from [:tbxml-android:] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d8c88e2ce3714e938fe896c8a96028b3\AndroidManifest.xml:2:1-11:12
+MERGED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-36:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\630228ac4801271b1037aa15cf503b4f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9538b7e56cdea2be68698627853fb405\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fbeaab4ae5d5aa26332f5d683735cb48\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b110218ab6e4afebd42ca3c09aa338d6\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:17:1-47:12
+MERGED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ce0a8fe6fee2dd98c04975a45b25ec2b\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7936568ac7dc7a33b1b530c07eef13e8\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7f6566536aa50c8995e67eabe5355cac\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\24d4f5aabeb0a36333fad0d19857db6f\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\190c73b0cff8cd5e383b0c3013efc352\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\f2c8bd90fc01b96e56115463a6057b59\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a97af055ab49b2934b32598e6d74a0a6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\36cc8cdefc144af3dc7d439294437567\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3c37ea8dbc1eb1792ecf8981e4b46ab1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fc58f8c2daf97ffcb61d237b91aa24be\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3501be7b67809a0bd7acc7c107751d1e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\afe1b4acf1d9d38a33cd5ffebeb903b2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\729fb81d853c43a2f63fe46c12eb465c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\78dba5392c1372a2658054c0ca1cd4e9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\95af76d1851a77bc79d20f9463768d64\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\779709853acbd043d77efd8f16f5966f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a2248c3a6b9fa19dd2875ef51fd200cc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\1788e0866f60e67c43856686d599f3ce\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e353d8f59315ca839d0d7802b9c719d7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4c98756d161693ca820ef7eac3ff4e36\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\339932304423badb5c48be129cb5bee2\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d4107d44cc7fe7538c4fabd46e23c6c1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fe737f438b3770a50e6b310ea9b4d038\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4547feeeeada0e833c3306349df6bff9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9a619c126ca6981e589c84605a6f0032\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\8a4558621c91065e8d9160066fd34608\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\83f0cb6193efa37ce37caa1703ffcca8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cbcae33e24cb94a155177253e25713ee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3bab039cda25092e67a7a3f254e0b4bb\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e070f085e2fd44fb4df93650ca171372\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\eb15448eb4a8a47bb42be62dbb258914\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ef90123a94797675f3412d72cc0dcc71\AndroidManifest.xml:17:1-22:12
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\5c1f1e9b335f70f019a4278223b57987\AndroidManifest.xml:20:1-27:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+	package
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:3:5-31
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:1-63:12
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:5:5-43:19
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-36:19
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-36:19
+MERGED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-34:19
+MERGED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-34:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\630228ac4801271b1037aa15cf503b4f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\630228ac4801271b1037aa15cf503b4f\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fbeaab4ae5d5aa26332f5d683735cb48\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fbeaab4ae5d5aa26332f5d683735cb48\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b110218ab6e4afebd42ca3c09aa338d6\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b110218ab6e4afebd42ca3c09aa338d6\AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ce0a8fe6fee2dd98c04975a45b25ec2b\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ce0a8fe6fee2dd98c04975a45b25ec2b\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7936568ac7dc7a33b1b530c07eef13e8\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7936568ac7dc7a33b1b530c07eef13e8\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7f6566536aa50c8995e67eabe5355cac\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7f6566536aa50c8995e67eabe5355cac\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\24d4f5aabeb0a36333fad0d19857db6f\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\24d4f5aabeb0a36333fad0d19857db6f\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\339932304423badb5c48be129cb5bee2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\339932304423badb5c48be129cb5bee2\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:11:9-40
+activity#io.ionic.starter.MainActivity
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:13:9-32:20
+	android:label
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:16:13-56
+	android:launchMode
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:18:13-44
+	android:configChanges
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:14:13-90
+	android:theme
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:17:13-62
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:15:13-57
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:20:13-23:29
+action#android.intent.action.MAIN
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:22:27-74
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/custom_url_scheme
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:25:13-30:29
+action#android.intent.action.VIEW
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:26:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:27:17-76
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:27:27-73
+category#android.intent.category.BROWSABLE
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:28:17-78
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:28:27-75
+data
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:29:17-68
+	android:scheme
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:29:23-65
+uses-permission#android.permission.INTERNET
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:47:5-67
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-67
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:47:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:49:5-79
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:49:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:50:5-81
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:50:22-78
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:52:5-81
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:52:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:53:5-79
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:53:22-76
+uses-feature#android.hardware.location.gps
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:54:5-66
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:54:19-63
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:56:5-79
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:5-79
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:56:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:59:5-65
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:59:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:61:5-71
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:61:22-68
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:62:5-79
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:62:22-77
+uses-sdk
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:tbxml-android:] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d8c88e2ce3714e938fe896c8a96028b3\AndroidManifest.xml:7:5-9:41
+MERGED from [:tbxml-android:] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d8c88e2ce3714e938fe896c8a96028b3\AndroidManifest.xml:7:5-9:41
+MERGED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\630228ac4801271b1037aa15cf503b4f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\630228ac4801271b1037aa15cf503b4f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9538b7e56cdea2be68698627853fb405\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9538b7e56cdea2be68698627853fb405\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fbeaab4ae5d5aa26332f5d683735cb48\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fbeaab4ae5d5aa26332f5d683735cb48\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b110218ab6e4afebd42ca3c09aa338d6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b110218ab6e4afebd42ca3c09aa338d6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ce0a8fe6fee2dd98c04975a45b25ec2b\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ce0a8fe6fee2dd98c04975a45b25ec2b\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7936568ac7dc7a33b1b530c07eef13e8\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7936568ac7dc7a33b1b530c07eef13e8\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7f6566536aa50c8995e67eabe5355cac\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\7f6566536aa50c8995e67eabe5355cac\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\24d4f5aabeb0a36333fad0d19857db6f\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\24d4f5aabeb0a36333fad0d19857db6f\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\190c73b0cff8cd5e383b0c3013efc352\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\190c73b0cff8cd5e383b0c3013efc352\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\f2c8bd90fc01b96e56115463a6057b59\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\f2c8bd90fc01b96e56115463a6057b59\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a97af055ab49b2934b32598e6d74a0a6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a97af055ab49b2934b32598e6d74a0a6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\36cc8cdefc144af3dc7d439294437567\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\36cc8cdefc144af3dc7d439294437567\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3c37ea8dbc1eb1792ecf8981e4b46ab1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3c37ea8dbc1eb1792ecf8981e4b46ab1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fc58f8c2daf97ffcb61d237b91aa24be\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fc58f8c2daf97ffcb61d237b91aa24be\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3501be7b67809a0bd7acc7c107751d1e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3501be7b67809a0bd7acc7c107751d1e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\afe1b4acf1d9d38a33cd5ffebeb903b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\afe1b4acf1d9d38a33cd5ffebeb903b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\729fb81d853c43a2f63fe46c12eb465c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\729fb81d853c43a2f63fe46c12eb465c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\78dba5392c1372a2658054c0ca1cd4e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\78dba5392c1372a2658054c0ca1cd4e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\95af76d1851a77bc79d20f9463768d64\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\95af76d1851a77bc79d20f9463768d64\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\779709853acbd043d77efd8f16f5966f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\779709853acbd043d77efd8f16f5966f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a2248c3a6b9fa19dd2875ef51fd200cc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\a2248c3a6b9fa19dd2875ef51fd200cc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\1788e0866f60e67c43856686d599f3ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\1788e0866f60e67c43856686d599f3ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e353d8f59315ca839d0d7802b9c719d7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e353d8f59315ca839d0d7802b9c719d7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4c98756d161693ca820ef7eac3ff4e36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4c98756d161693ca820ef7eac3ff4e36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cfecc83a223e382294630d5b9e2e3141\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\339932304423badb5c48be129cb5bee2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\339932304423badb5c48be129cb5bee2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d4107d44cc7fe7538c4fabd46e23c6c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\d4107d44cc7fe7538c4fabd46e23c6c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fe737f438b3770a50e6b310ea9b4d038\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\fe737f438b3770a50e6b310ea9b4d038\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4547feeeeada0e833c3306349df6bff9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\4547feeeeada0e833c3306349df6bff9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9a619c126ca6981e589c84605a6f0032\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\9a619c126ca6981e589c84605a6f0032\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\8a4558621c91065e8d9160066fd34608\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\8a4558621c91065e8d9160066fd34608\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\83f0cb6193efa37ce37caa1703ffcca8\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\83f0cb6193efa37ce37caa1703ffcca8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cbcae33e24cb94a155177253e25713ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\cbcae33e24cb94a155177253e25713ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3bab039cda25092e67a7a3f254e0b4bb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\3bab039cda25092e67a7a3f254e0b4bb\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e070f085e2fd44fb4df93650ca171372\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\e070f085e2fd44fb4df93650ca171372\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\eb15448eb4a8a47bb42be62dbb258914\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\eb15448eb4a8a47bb42be62dbb258914\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ef90123a94797675f3412d72cc0dcc71\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\ef90123a94797675f3412d72cc0dcc71\AndroidManifest.xml:20:5-44
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\5c1f1e9b335f70f019a4278223b57987\AndroidManifest.xml:25:5-44
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\5c1f1e9b335f70f019a4278223b57987\AndroidManifest.xml:25:5-44
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:39:13-41:64
+	android:resource
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:41:17-51
+	android:name
+		ADDED from C:\Project\park-n-go\android\app\src\main\AndroidManifest.xml:40:17-67
+uses-feature#0x00020000
+ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:5-22:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:26:5-28:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\b155c1ed47de681847336f06e14b51c1\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-41
+	android:required
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-32
+uses-feature#android.hardware.location
+ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:5-62
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:19-59
+meta-data#com.google.android.geo.API_KEY
+ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:9-28:71
+	android:value
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-68
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:13-58
+meta-data#com.google.android.gms.version
+ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:9-31:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\0954b716f039982489ade28d6ee40403\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-66
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-58
+uses-library#org.apache.http.legacy
+ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [:capacitor-cordova-android-plugins] C:\Project\park-n-go\android\capacitor-cordova-android-plugins\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:13-50
+uses-feature#android.hardware.camera
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-47
+service#com.getcapacitor.plugin.background.BackgroundTaskService
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-84
+receiver#com.getcapacitor.plugin.notification.TimedNotificationPublisher
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:9-100
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:19-97
+receiver#com.getcapacitor.plugin.notification.NotificationDismissReceiver
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-101
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:19-98
+meta-data#firebase_messaging_auto_init_enabled
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:9-25:37
+	android:value
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-34
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-64
+service#com.getcapacitor.CapacitorFirebaseMessagingService
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-33:19
+	android:stopWithTask
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:13-41
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-78
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-32:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:17-78
+	android:name
+		ADDED from [:capacitor-android] C:\Project\park-n-go\node_modules\@capacitor\android\capacitor\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:25-75
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:28:9-34:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\02b032fbbcd7b0676c07c0c4d79e8930\AndroidManifest.xml:29:13-82
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:24:22-65
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:26:22-79
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:29:9-35:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:30:13-84
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:38:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:41:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:42:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:18.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\202277ef5629525182f5860c2c4e9cd6\AndroidManifest.xml:42:25-78
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:12:9-16:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:14:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:16:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:17.0.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\89907dc67c78fa70e070a4590a26ddda\AndroidManifest.xml:13:13-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\James\.gradle\caches\transforms-2\files-2.1\77867f8c76789276035f3ea09d6370c4\AndroidManifest.xml:24:13-79
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\032ac17ec4d4286dab3687387cee6027\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\James\.gradle\caches\transforms-2\files-2.1\87ea6ffc794844382313128adf8f18df\AndroidManifest.xml:27:13-51
