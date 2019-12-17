@@ -61,7 +61,7 @@ export class ManageProfilePage implements OnInit {
 
   editProfilePicture() {
     console.log('EDIT PROFILEEEE !!!!!!!!!!!!!!');
-    console.log('wip');
+    console.log('wip asdasd');
   }
 
   backToManage() {
