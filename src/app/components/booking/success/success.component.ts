@@ -1,5 +1,5 @@
 import { ModalController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   LaunchNavigator,
@@ -12,6 +12,11 @@ import {
   styleUrls: ['./success.component.scss'],
 })
 export class SuccessComponent implements OnInit {
+  @Input()
+  lng!: number;
+  lat!: number;
+  placeName!: string;
+
   constructor(
     private launchNavigator: LaunchNavigator,
     private modalCtrl: ModalController,
@@ -26,7 +31,7 @@ export class SuccessComponent implements OnInit {
     };
 
     this.launchNavigator
-      .navigate([50.279306, -5.163158], options)
+      .navigate([this.lat, this.lng], options)
       .then(
         (success) => console.log('SUCCESS Launched navigator'),
         (error) => console.log('Error launching navigator: ' + error),

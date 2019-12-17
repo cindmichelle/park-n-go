@@ -3,19 +3,28 @@
     <div class="maps">
       <div id="map_canvas">
         <div class="input">
-          <ion-input [(ngModel)]="search" (ionChange)="searchChanged()" class="ion-margin-horizontal" name ="search" type="text" placeholder="Search for parking around you ...">
-<!--            <ion-icon name="search" class="icon" slot="start"></ion-icon>-->
+          <ion-input
+            [(ngModel)]="search"
+            (ionChange)="searchChanged()"
+            class="ion-margin-horizontal"
+            name="search"
+            type="text"
+            placeholder="Search for parking around you ..."
+          >
+            <!--            <ion-icon name="search" class="icon" slot="start"></ion-icon>-->
           </ion-input>
 
           <ion-list class="" *ngIf="search">
-            <ion-item (click)="searchClick(results)" *ngFor="let results of srchResults">
+            <ion-item
+              (click)="searchClick(results)"
+              *ngFor="let results of srchResults"
+            >
               {{ results.description }}
             </ion-item>
           </ion-list>
         </div>
 
-
-        <div class="card" *ngIf="cardAddress && cardAreaName && cardPricePerHour">
+        <div class="card" *ngIf="cardVisible">
           <div class="flex">
             <ion-label class="place">
               <h2 class="name">
@@ -25,7 +34,9 @@
             </ion-label>
             <div class="slot-wrapper">
               <p class="slot-caption" *ngIf="!booked">PARKING<br />AVAILABLE</p>
-              <p class="slot-caption" *ngIf="booked">PARKING<br />NOT AVAILABLE</p>
+              <p class="slot-caption" *ngIf="booked">
+                PARKING<br />NOT AVAILABLE
+              </p>
             </div>
           </div>
           <div class="divider">&nbsp;</div>
@@ -38,18 +49,20 @@
               </h3>
             </ion-label>
 
-<!--            <ion-button-->
-<!--              color="secondary"-->
-<!--              (click)="showBookingConfirmation(cardPlaceId)"-->
-<!--              class="book"-->
-<!--              >Book now</ion-button>-->
+            <!--            <ion-button-->
+            <!--              color="secondary"-->
+            <!--              (click)="showBookingConfirmation(cardPlaceId)"-->
+            <!--              class="book"-->
+            <!--              >Book now</ion-button>-->
 
             <ion-button
               color="secondary"
               (click)="showBookingConfirmation(cardPlaceId)"
               [routerLink]="['/', 'booking', cardPlaceId, cardPricePerHour]"
-              class="book" [disabled]="booked"
-            >Book now</ion-button>
+              class="book"
+              [disabled]="booked"
+              >Book now</ion-button
+            >
           </div>
         </div>
       </div>

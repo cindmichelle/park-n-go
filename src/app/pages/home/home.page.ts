@@ -6,12 +6,14 @@ import { AsyncStorageService } from './../../native/async-storage.service';
 import { UserViewModel } from './../../model/user.model';
 import { UserService } from './../user.service';
 import { Component, NgZone, OnInit } from '@angular/core';
+
 import {
   GoogleMap,
   GoogleMaps,
   GoogleMapsEvent,
   Marker,
-  Environment, Geocoder
+  Environment,
+  Geocoder,
 } from '@ionic-native/google-maps/ngx';
 import { GoogleMapOptions } from '@ionic-native/google-maps/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -39,6 +41,8 @@ export class HomePage implements OnInit {
   search = '';
   private googleAutoComplete = new google.maps.places.AutocompleteService();
   public srchResults = new Array<any>();
+  cardVisible = false;
+  booked = false;
 
   image = 'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png';
 
@@ -49,11 +53,9 @@ export class HomePage implements OnInit {
     private geoLocation: Geolocation,
     private managePlaceSvc: ManagePlaceService,
     private ngZone: NgZone,
-  ) {
-    console.log(google);
-  }
+  ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const token: string = await this.storage.get('token');
     this.userService.getAllUserInfo(token);
     // @ts-ignore
@@ -73,7 +75,6 @@ export class HomePage implements OnInit {
       console.log('SHOW ALL NEARBY PLACES', this.places);
 
       this.places.forEach((it) => {
-        console.log('In For each');
         const location = {
           title: it.areaName,
           position: {
@@ -82,7 +83,6 @@ export class HomePage implements OnInit {
           },
         } as Locations;
         this.locations.push(location);
-        console.log('PUSH LOCATION', this.locations);
 
         const newMarker: Marker = this.map.addMarkerSync(location);
         newMarker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
@@ -90,7 +90,7 @@ export class HomePage implements OnInit {
           this.cardAddress = it.address;
           this.cardPricePerHour = String(it.pricePerHour);
           this.cardPlaceId = it.id;
-          console.log(it);
+          this.ngZone.run(() => (this.cardVisible = true));
         });
       });
     });
@@ -111,6 +111,7 @@ export class HomePage implements OnInit {
 
     await this.loadMap(this.locLat, this.locLong);
   }
+  ngOnInit() {}
 
   async loadMap(locLat: number, locLong: number) {
     // This code is necessary for browser
@@ -148,20 +149,27 @@ export class HomePage implements OnInit {
   }
 
   searchChanged() {
-    if (!this.search.trim().length) { return; }
+    if (!this.search.trim().length) {
+      return;
+    }
 
-    this.googleAutoComplete.getPlacePredictions({ input: this.search }, (predictions: any[]) => {
-      this.ngZone.run(() => {
-        this.srchResults = predictions;
-      });
-    });
+    this.googleAutoComplete.getPlacePredictions(
+      { input: this.search },
+      (predictions: any[]) => {
+        this.ngZone.run(() => {
+          this.srchResults = predictions;
+        });
+      },
+    );
   }
 
   async searchClick(place: any) {
     this.search = '';
     console.log(place);
 
-    const searchedLocation: any = await Geocoder.geocode({ address: place.description });
+    const searchedLocation: any = await Geocoder.geocode({
+      address: place.description,
+    });
     console.log(searchedLocation[0]);
     const goToPosition = {
       target: searchedLocation[0].position,

@@ -35,6 +35,8 @@ export class BookingPage implements OnInit {
   placeInfo!: PlaceViewModel;
   placeEmailOwner!: string;
   placeBooked!: boolean;
+  locLat!: number;
+  locLng!: number;
 
   vehicleList: VehicleViewModel[] = [];
   buttons: any[] = [];
@@ -45,6 +47,7 @@ export class BookingPage implements OnInit {
   @ViewChild('bookingForm', { static: true }) form!: NgForm;
   leavingDateTime!: number;
   arrivalDateTime!: number;
+  placeName!: string;
   plateModel!: any;
 
   constructor(
@@ -59,7 +62,7 @@ export class BookingPage implements OnInit {
     private placeSvc: ManagePlaceService,
   ) {}
 
-  ngOnInit() {
+  async ionViewDidEnter() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       if (!paramMap.has('id')) {
         this.backToHome();
@@ -68,25 +71,39 @@ export class BookingPage implements OnInit {
       this.placeId = paramMap.get('id') + '';
       this.pricePerHour = Number(paramMap.get('price'));
       this.duration = '-';
-      this.plateNo = '-';
 
       this.getPlaceInfo().then((r) => r);
     });
+
+    const token = await this.storage.get('token');
+
+    await this.vehicleSvc.getUnparkedVehicles(token).subscribe((res) => {
+      this.vehicleList = res;
+
+      this.plateNo = this.vehicleList[0].plateNo;
+      this.vehicleList.forEach((v) => {
+        this.buttons.push({
+          text: v.plateNo,
+          handler: () => {
+            this.plateNo = v.plateNo;
+          },
+        });
+      });
+    });
   }
+
+  async ngOnInit() {}
 
   async getPlaceInfo() {
     const data = this.db.doc<Place>('places/' + this.placeId).valueChanges();
-    data.subscribe((r) => {
-      console.log('Booking Page ts place info: ', r);
-      // @ts-ignore
-      this.placeEmailOwner = r.email;
-      // @ts-ignore
-      if (r.booked == null) {
-        r.booked = false;
+    data.subscribe((res) => {
+      if (res) {
+        this.placeEmailOwner = res.email;
+        this.locLat = res.locLatitude;
+        this.locLng = res.locLongitude;
+        this.placeName = res.areaName;
+        this.placeBooked = !!res.booked;
       }
-      // @ts-ignore
-      this.placeBooked = r.booked;
-      console.log(this.placeEmailOwner);
     });
   }
 
@@ -120,58 +137,22 @@ export class BookingPage implements OnInit {
   }
 
   async changeVehicle() {
-    const email = await this.storage.get('token');
-
-    await this.vehicleSvc.getUnparkedVehicles(email).subscribe((res) => {
-      this.vehicleList = [];
-      this.vehicleList = res;
-      console.log('Booking', this.vehicleList);
-      this.vehicleList.forEach((v) => {
-        console.log(v.plateNo);
-        this.buttons.push({
-          text: v.plateNo,
-          handler: () => {
-            this.plateNo = v.plateNo;
-          },
-        });
+    this.actionCtrl
+      .create({
+        header: 'Select Vehicle Plate Number',
+        buttons: this.buttons,
+      })
+      .then((action) => {
+        action.present();
       });
-
-      console.log('Buttons', this.buttons);
-
-      this.actionCtrl
-        .create({
-          header: 'Select Vehicle Plate Number',
-          buttons: this.buttons,
-        })
-        .then((action) => {
-          action.present();
-        });
-    });
   }
 
   async bookingPlace() {
     try {
-      console.log('Creating Booking');
-
-      console.log('toDateString()', new Date().toDateString());
-      console.log('toISOString()', new Date().toISOString());
-      console.log('toTimeString()', new Date().toTimeString());
-
       const email = await this.storage.get('token');
       const created = new Date().toISOString();
 
-      console.log(
-        email,
-        this.plateNo,
-        this.placeId,
-        this.duration,
-        this.arrivalDateTime,
-        this.leavingDateTime,
-        this.totalPrice,
-        created,
-      );
-
-      const res = this.db.collection<Bookings>('bookings').add({
+      const res = await this.db.collection<Bookings>('bookings').add({
         customerEmail: email,
         customerPlateNo: this.plateNo,
         placeId: this.placeId,
@@ -186,23 +167,22 @@ export class BookingPage implements OnInit {
 
       await this.placeSvc.updateBookedPlace(this.placeId, this.placeBooked);
 
-      console.log(res);
+      console.log('>> db response: ', res);
 
-      console.log(res);
-
-      const success = 1;
-      if (success) {
-        const modal = await this.modalCtrl.create({
-          component: SuccessComponent,
-        });
-        await modal.present();
-      } else {
-        const modal = await this.modalCtrl.create({
-          component: FailComponent,
-        });
-        await modal.present();
-      }
+      const modal = await this.modalCtrl.create({
+        component: SuccessComponent,
+        componentProps: {
+          lat: this.locLat,
+          lng: this.locLng,
+          placeName: this.placeName,
+        },
+      });
+      await modal.present();
     } catch (err) {
+      const modal = await this.modalCtrl.create({
+        component: FailComponent,
+      });
+      await modal.present();
       console.log('ERRORRRRR : ', err);
     }
   }
