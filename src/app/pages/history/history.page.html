@@ -10,40 +10,42 @@
     <ion-segment-button value="places">Places</ion-segment-button>
   </ion-segment>
 
-  <div *ngIf="segmentedValue == 'parking'" >
-    <div *ngIf="vehicleHistory">
-      <ion-list *ngFor="let v of vehicleHistory">
-        <ion-item lines="full" class="list-item">
+  <div *ngIf="segmentedValue == 'parking'">
+    <div *ngIf="vehicleHistory.length > 0">
+      <ion-list *ngFor="let v of vehicleHistory; index as i">
+        <ion-item lines="full" class="list-item" (click)="onVehicleClick(i)">
           <div class="wrapper-place">
-            <h3 class="place-name">{{ v.customerPlateNo }}</h3>
-            <ion-label class="plate">Parking Info: {{ v.placeId }}</ion-label>
+            <h3 class="place-name">{{ v.vehicleType }}</h3>
+            <ion-label class="plate"
+              >{{ v.customerPlateNo }} - {{v.vehicleModel}}
+            </ion-label>
           </div>
-          <ion-img
-                  style="width: 80px; height: 80px;"
-                  src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
-          ></ion-img>
+          <h3 class="label ongoing" *ngIf="v.ongoing">ONGOING</h3>
+          <h3 class="label outdated" *ngIf="!v.ongoing">OUTDATED</h3>
         </ion-item>
       </ion-list>
     </div>
-    <p *ngIf="!vehicleHistory" class="list">There are no parking history.</p>
+    <p *ngIf="vehicleHistory.length == 0" class="list">
+      There are no parking history.
+    </p>
   </div>
 
   <div *ngIf="segmentedValue == 'places'">
-    <div *ngIf="placeHistory">
-      <ion-list *ngFor="let p of placeHistory">
-        <ion-item lines="full" class="list-item">
+    <div *ngIf="placeHistory.length > 0">
+      <ion-list *ngFor="let p of placeHistory; index as i">
+        <ion-item lines="full" class="list-item" (click)="onPlaceClick(i)">
           <div class="wrapper-place">
-            <h3 class="place-name">{{ p.placeId }}</h3>
-            <ion-label class="plate">Car Parked: {{ p.customerPlateNo }}</ion-label>
+            <h3 class="place-name">{{ p.placeName }}</h3>
+            <ion-label class="plate">{{ p.address }}</ion-label>
           </div>
-          <ion-img
-                  style="width: 80px; height: 80px;"
-                  src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
-          ></ion-img>
+          <h3 class="label ongoing" *ngIf="p.ongoing">ONGOING</h3>
+          <h3 class="label outdated" *ngIf="!p.ongoing">OUTDATED</h3>
         </ion-item>
       </ion-list>
     </div>
-    <p *ngIf="!placeHistory" class="list">There are no rent parking places history.</p>
+    <p *ngIf="placeHistory.length == 0" class="list">
+      There are no rent parking places history.
+    </p>
   </div>
 
   <!-- <div [ngSwitch]="segmentedValue">

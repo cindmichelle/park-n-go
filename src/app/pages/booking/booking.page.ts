@@ -1,5 +1,3 @@
-// import { FailComponent } from './../../components/booking/fail/fail.component';
-// import { SuccessComponent } from './../../components/booking/success/success.component';
 import {
   ActionSheetController,
   ModalController,
@@ -40,6 +38,7 @@ export class BookingPage implements OnInit {
 
   vehicleList: VehicleViewModel[] = [];
   buttons: any[] = [];
+  address!: string;
 
   arrivalTimeSet = false;
   leavingTimeSet = false;
@@ -102,6 +101,7 @@ export class BookingPage implements OnInit {
         this.locLat = res.locLatitude;
         this.locLng = res.locLongitude;
         this.placeName = res.areaName;
+        this.address = res.address;
         this.placeBooked = !!res.booked;
       }
     });
@@ -150,18 +150,27 @@ export class BookingPage implements OnInit {
   async bookingPlace() {
     try {
       const email = await this.storage.get('token');
-      const created = new Date().toISOString();
+      const createdAt = new Date().toISOString();
+
+      const selectedVehicle = this.vehicleList.find((vehicle) => {
+        return vehicle.plateNo === this.plateNo;
+      });
 
       const res = await this.db.collection<Bookings>('bookings').add({
         customerEmail: email,
         customerPlateNo: this.plateNo,
+
         placeId: this.placeId,
         placeEmailOwner: this.placeEmailOwner,
+        placeName: this.placeName,
+        address: this.address,
+        vehicleModel: selectedVehicle ? selectedVehicle.vehicleModel : '',
+        vehicleType: selectedVehicle ? selectedVehicle.vehicleType : '',
         duration: this.duration,
         arrivalDateTime: this.arrivalTime,
         leavingDateTime: this.leavingTime,
         totalPrice: this.totalPrice,
-        createdAt: created,
+        createdAt,
         ongoing: true,
       });
 
