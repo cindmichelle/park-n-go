@@ -9,4 +9,10 @@ export interface Bookings {
   totalPrice: string;
   createdAt: string;
   ongoing: boolean;
+  placeName: string;
+  address: string;
+  vehicleModel: string;
+  vehicleType: string;
 }
+
+// jenis kendaraan, nama kendaraan, nama tempat, alamat,
