@@ -15,7 +15,7 @@ export class ManagePlaceService {
   private placesCollection!: AngularFirestoreCollection<Place>;
   private places!: Observable<PlaceViewModel[]>;
   private myPlacesCollection!: AngularFirestoreCollection<Place>;
-  private myPlaces!: Observable<Place[]>;
+  private myPlaces!: Observable<PlaceViewModel[]>;
 
 
   constructor(private db: AngularFirestore) {
@@ -62,6 +62,7 @@ export class ManagePlaceService {
   }
 
   updatePlace(place: Place, id: string) {
+    console.log('UPDATE PLACE', place);
     return this.placesCollection.doc(id).update(place);
   }
 
@@ -76,11 +77,11 @@ export class ManagePlaceService {
   updateBookedPlace(id: string, booked: boolean) {
     if (booked) {
       return this.placesCollection.doc(id).update({
-        booked: false
+        booked: false,
       });
     } else {
       return this.placesCollection.doc(id).update({
-        booked: true
+        booked: true,
       });
     }
   }

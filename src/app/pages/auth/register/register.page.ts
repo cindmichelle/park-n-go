@@ -2,7 +2,7 @@ import { AsyncStorageService } from './../../../native/async-storage.service';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { Register } from 'src/app/model/register.model';
 import { User } from 'src/app/model/user.model';
 
@@ -21,16 +21,26 @@ export class RegisterPage implements OnInit {
     password: '',
     confirmPassword: '',
   };
+
   constructor(
     private authSvc: AuthService,
     private router: Router,
+    private loadCtrl: LoadingController,
     private toastCtrl: ToastController,
     private storage: AsyncStorageService,
-  ) {}
+  ) {
+  }
 
-  ngOnInit() {}
+  async ngOnInit() {
+
+  }
 
   async onRegister() {
+    const loading = await this.loadCtrl.create({
+      message: 'Creating Account . . .',
+    });
+    await loading.present();
+
     this.authSvc.signup(this.user.email, this.user.password).subscribe(
       async (resp) => {
         try {
@@ -43,9 +53,9 @@ export class RegisterPage implements OnInit {
             };
 
             await this.authSvc.addNewUser(newUser);
-
             await this.storage.set('token', this.user.email);
             await this.presentSuccessToast();
+            await this.loadCtrl.dismiss();
             this.router.navigateByUrl('/tabs/parking');
           }
         } catch (error) {

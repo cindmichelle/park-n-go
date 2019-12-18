@@ -7,6 +7,7 @@ export interface Place {
   locLatitude: number;
   locLongitude: number;
   booked: boolean;
+  imageUrl: string;
 }
 
 export type PlaceViewModel = Place & { id: string };

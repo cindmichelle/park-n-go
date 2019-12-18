@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AsyncStorageService } from '../../../native/async-storage.service';
 import { PickLocationComponent } from '../../../components/pick-location/pick-location.component';
+import { CameraOptions, Camera } from '@ionic-native/camera/ngx';
+import { storage } from 'firebase';
 
 @Component({
   selector: 'app-edit-place',
@@ -18,6 +20,9 @@ export class EditPlacePage implements OnInit {
   @ViewChild('editPlace', { static: true }) form!: NgForm;
   private placeId!: string;
 
+  imageStr!: string;
+
+
   place: Place = {
     areaName: '',
     address: '',
@@ -26,6 +31,7 @@ export class EditPlacePage implements OnInit {
     locLatitude: 0,
     locLongitude: 0,
     booked: false,
+    imageUrl: '',
   };
   locLat!: number;
   locLng!: number;
@@ -36,10 +42,11 @@ export class EditPlacePage implements OnInit {
     private navCtrl: NavController,
     private loadCtrl: LoadingController,
     private activatedRoute: ActivatedRoute,
-    private storage: AsyncStorageService,
+    private asyncStorage: AsyncStorageService,
+    private camera: Camera,
     private firestore: AngularFirestore,
     private placeService: ManagePlaceService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
   ) {
   }
 
@@ -62,14 +69,20 @@ export class EditPlacePage implements OnInit {
         // @ts-ignore
         this.pricePerHour = res.pricePerHour;
         // @ts-ignore
+        this.locLat = res.locLatitude;
+        // @ts-ignore
+        this.locLng = res.locLongitude;
+        // @ts-ignore
         this.booked = res.booked;
+        // @ts-ignore
+        this.imageStr = res.imageUrl;
       });
     });
   }
 
   async editPlaceLatLng() {
     const modal = await this.modalCtrl.create({
-      component: PickLocationComponent
+      component: PickLocationComponent,
     });
 
     await modal.present();
@@ -101,8 +114,9 @@ export class EditPlacePage implements OnInit {
     const pricePerHour = this.form.value.pricePerHour;
     const locLatitude = this.locLat;
     const locLongitude = this.locLng;
-    const email = await this.storage.get('token');
+    const email = await this.asyncStorage.get('token');
     const booked = this.booked;
+    const imageUrl = this.imageStr;
 
     console.log(areaName, address, pricePerHour, locLatitude, locLongitude, email);
 
@@ -113,7 +127,8 @@ export class EditPlacePage implements OnInit {
       pricePerHour,
       locLatitude,
       locLongitude,
-      booked
+      booked,
+      imageUrl,
     };
 
     console.log(this.place);
@@ -122,6 +137,37 @@ export class EditPlacePage implements OnInit {
 
     await loading.dismiss();
     this.backToManage();
+  }
+
+  async takePictureFromPhotoAlbum() {
+    try {
+      const loading = await this.loadCtrl.create({
+        message: 'Uploading picture...',
+      });
+      await loading.present();
+      const options: CameraOptions = {
+        quality: 50,
+        targetWidth: 600,
+        targetHeight: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        correctOrientation: true,
+      };
+
+      const result = await this.camera.getPicture(options);
+
+      const img = `data:image/jpeg;base64,${result}`;
+
+      const picture = storage().ref(`placePictures/${this.form.value.areaName}.jpg`);
+      picture.putString(img, 'data_url').then(
+        this.imageStr = await storage().ref().child('placePictures/' + this.form.value.areaName + '.jpg').getDownloadURL(),
+      );
+      await loading.dismiss();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   async deletePlaceFromDB() {

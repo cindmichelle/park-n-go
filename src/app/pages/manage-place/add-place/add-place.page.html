@@ -39,26 +39,9 @@
                 ngModel
         ></ion-input>
       </ion-item>
-
-<!--      <ion-item class="input-container">-->
-<!--        <ion-label position="stacked">Location ***put map here***</ion-label>-->
-<!--        <ion-input-->
-<!--                class="input"-->
-<!--                required-->
-<!--                inputmode="numeric"-->
-<!--        ></ion-input>-->
-<!--      </ion-item>-->
-<!--      <ion-item class="input-container">-->
-<!--        <ion-label position="stacked">Upload Picture **need more info**</ion-label>-->
-<!--        <ion-input-->
-<!--                class="input"-->
-<!--                required-->
-<!--                inputmode="numeric"-->
-<!--        ></ion-input>-->
-<!--      </ion-item>-->
     </ion-list>
     <ion-button expand="block" (click)="addPlaceLatLng()">Set Location on Map</ion-button>
-<!--    <ion-button expand="block" color="tertiary" type="submit" class="upload-btn">Upload from Gallery</ion-button>-->
+    <ion-button expand="block" (click)="takePictureFromPhotoAlbum()" color="tertiary">Upload Place Picture</ion-button>
     <ion-button
             expand="block"
             type="submit"

@@ -2,7 +2,7 @@ import { AsyncStorageService } from './../../native/async-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagePlaceService } from '../../services/manage-place.service';
-import { Place } from '../../model/place.model';
+import { PlaceViewModel } from '../../model/place.model';
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -12,7 +12,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class ManagePlacePage implements OnInit {
 
-  places: Place[] | undefined;
+  places: PlaceViewModel[] | undefined;
 
   constructor(
     private routeCtrl: Router,
@@ -40,8 +40,8 @@ export class ManagePlacePage implements OnInit {
 
   addPlace() {
     console.log('Add button clicked!');
-
     this.routeCtrl.navigateByUrl('/add-place');
-
   }
+
+
 }

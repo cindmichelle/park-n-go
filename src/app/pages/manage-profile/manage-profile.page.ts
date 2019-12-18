@@ -84,7 +84,7 @@ export class ManageProfilePage implements OnInit {
 
       const img = `data:image/jpeg;base64,${result}`;
 
-      const picture = storage().ref(`profilePictures/${this.userEmail}.jpeg`);
+      const picture = storage().ref(`profilePictures/${this.userEmail}`);
       picture.putString(img, 'data_url');
 
       await loading.dismiss();

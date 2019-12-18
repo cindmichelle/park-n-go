@@ -2,9 +2,11 @@ import { AsyncStorageService } from './../../../native/async-storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ManagePlaceService } from '../../../services/manage-place.service';
 import { Place } from '../../../model/place.model';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, LoadingController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { PickLocationComponent } from '../../../components/pick-location/pick-location.component';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { storage } from 'firebase';
 
 @Component({
   selector: 'app-add-place',
@@ -16,6 +18,7 @@ export class AddPlacePage implements OnInit {
 
   private locLat!: number;
   private locLng!: number;
+  imageStr!: string;
 
   locLatLng = false;
 
@@ -27,6 +30,7 @@ export class AddPlacePage implements OnInit {
     locLatitude: 0,
     locLongitude: 0,
     booked: false,
+    imageUrl: '',
   };
 
   @ViewChild('addPlace', { static: true }) form!: NgForm;
@@ -35,16 +39,19 @@ export class AddPlacePage implements OnInit {
   constructor(
     private placeService: ManagePlaceService,
     private navCtrl: NavController,
-    private storage: AsyncStorageService,
+    private asyncStorage: AsyncStorageService,
     private modalCtrl: ModalController,
+    private loadCtrl: LoadingController,
+    private camera: Camera,
   ) {
   }
 
   async ngOnInit() {
-    this.emailUser = await this.storage.get('token');
+    this.emailUser = await this.asyncStorage.get('token');
   }
 
   async addPlaceToDB() {
+
     const areaName = this.form.value.areaName;
     const address = this.form.value.address;
     const pricePerHour = this.form.value.pricePerHour;
@@ -54,6 +61,7 @@ export class AddPlacePage implements OnInit {
 
     const email = this.emailUser;
     const booked = false;
+    const imageUrl = this.imageStr;
 
     this.places = {
       address,
@@ -62,7 +70,8 @@ export class AddPlacePage implements OnInit {
       locLatitude,
       locLongitude,
       pricePerHour,
-      booked
+      booked,
+      imageUrl,
     };
 
     console.log(this.places);
@@ -70,8 +79,35 @@ export class AddPlacePage implements OnInit {
     await this.placeService.addPlace(this.places);
   }
 
-  addPlacePicture() {
-    console.log('Picture Added');
+  async takePictureFromPhotoAlbum() {
+    try {
+      const loading = await this.loadCtrl.create({
+        message: 'Uploading picture...',
+      });
+      await loading.present();
+      const options: CameraOptions = {
+        quality: 50,
+        targetWidth: 600,
+        targetHeight: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        correctOrientation: true,
+      };
+
+      const result = await this.camera.getPicture(options);
+
+      const img = `data:image/jpeg;base64,${result}`;
+
+      const picture = storage().ref(`placePictures/${this.form.value.areaName}.jpg`);
+      picture.putString(img, 'data_url').then(
+        this.imageStr = await storage().ref().child('placePictures/' + this.form.value.areaName + '.jpg').getDownloadURL(),
+      );
+      await loading.dismiss();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   async addPlaceLatLng() {

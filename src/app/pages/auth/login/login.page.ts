@@ -2,7 +2,7 @@ import { AsyncStorageService } from './../../../native/async-storage.service';
 import { Login } from './../../../model/login.model';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,18 +20,27 @@ export class LoginPage implements OnInit {
     private authSvc: AuthService,
     private toastCtrl: ToastController,
     private router: Router,
+    private loadCtrl: LoadingController,
     private storage: AsyncStorageService,
-  ) {}
+  ) {
+  }
 
-  ngOnInit() {}
+  async ngOnInit() {
+
+  }
 
   async onLogin() {
+    const loading = await this.loadCtrl.create({
+      message: 'Loging in . . .',
+    });
+    await loading.present();
     this.authSvc.login(this.input.email, this.input.password).subscribe(
       async (resp) => {
         try {
           if (resp.idToken) {
             await this.storage.set('token', this.input.email);
             await this.presentSuccessToast();
+            await this.loadCtrl.dismiss();
             this.router.navigateByUrl('/tabs/parking');
           }
         } catch (error) {

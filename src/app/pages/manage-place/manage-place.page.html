@@ -2,17 +2,17 @@
   <ion-toolbar>
     <ion-buttons>
       <ion-back-button
-        slot="start"
-        defaultHref="/tabs/profile"
+              slot="start"
+              defaultHref="/tabs/profile"
       ></ion-back-button>
     </ion-buttons>
     <ion-title>Manage Place</ion-title>
     <ion-label
-      slot="primary"
-      class="ion-padding btn"
-      (click)="addPlace()"
-      color="primary"
-      >Add</ion-label
+            slot="primary"
+            class="ion-padding btn"
+            (click)="addPlace()"
+            color="primary"
+    >Add</ion-label
     >
   </ion-toolbar>
 </ion-header>
@@ -26,35 +26,15 @@
       </div>
       <ion-img
               style="width: 80px; height: 80px;"
-              src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"
+              src="{{ p.imageUrl }}"
       ></ion-img>
     </ion-item>
-<!--    <ion-item lines="full" class="list-item">-->
-<!--      <div class="wrapper-place">-->
-<!--        <h3 class="place-name">Ruko Newton Barat No.19</h3>-->
-<!--        <ion-label class="plate">Short Description Parking Place</ion-label>-->
-<!--      </div>-->
-<!--      <ion-img-->
-<!--        style="width: 80px; height: 80px;"-->
-<!--        src="http://www.desertsun.co.uk/blog/images/Apartment%201.jpg"-->
-<!--      ></ion-img>-->
-<!--    </ion-item>-->
-<!--    <ion-item lines="full" class="list-item">-->
-<!--      <div class="wrapper-place">-->
-<!--        <h3 class="place-name">Ruko Newton Barat No.19</h3>-->
-<!--        <ion-label class="plate">Short Description Parking Place</ion-label>-->
-<!--      </div>-->
-<!--      <ion-img-->
-<!--        style="width: 80px; height: 80px;"-->
-<!--        src="https://static3.businessinsider.com/image/5681799ce6183e55008b526d-480/carmel-place-nyc-micro-apartment.jpg"-->
-<!--      ></ion-img>-->
-<!--    </ion-item>-->
   </ion-list>
   <ion-button
-    expand="block"
-    class="add-btn"
-    color="primary"
-    (click)="addPlace()"
-    >Add Place</ion-button
+          expand="block"
+          class="add-btn"
+          color="primary"
+          (click)="addPlace()"
+  >Add Place</ion-button
   >
 </ion-content>
