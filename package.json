@@ -22,7 +22,6 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
-
     "@ionic-native/camera": "^5.18.0",
     "@ionic-native/core": "^5.18.0",
     "@ionic-native/geolocation": "^5.18.0",
@@ -104,7 +103,7 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-camera": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyD_Hqv1lMFmvYTl-t1yzXkAp95hJGhTGQY"
       },

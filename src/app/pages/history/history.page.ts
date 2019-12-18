@@ -1,6 +1,10 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AsyncStorageService } from '../../native/async-storage.service';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Bookings } from '../../model/booking.model';
 
@@ -26,67 +30,128 @@ export class HistoryPage implements OnInit {
   constructor(
     private storage: AsyncStorageService,
     private db: AngularFirestore,
+    private router: Router,
   ) {
     this.segmentedValue = 'parking';
   }
 
-  async ngOnInit() {
-    this.email = await this.storage.get('token') + '';
-    console.log('History page ts:', this.email);
-    // @ts-ignore
-    // this.historyCollection = this.db.collection<Bookings>('bookings', (ref) => {
-    //   ref.where('email', '==', this.email);
-    // });
+  ngOnInit() {}
 
-    await this.getVehicleHistory();
+  async ionViewDidEnter() {
+    this.email = await this.storage.get('token');
+
     await this.getPlaceHistory();
+    await this.getVehicleHistory();
   }
 
   getPlaceHistory() {
-    this.placeHistoryCollection = this.db.collection<Bookings>('bookings', (ref) =>
-      ref.where('placeEmailOwner', '==', this.email),
+    this.placeHistoryCollection = this.db.collection<Bookings>(
+      'bookings',
+      (ref) => ref.where('placeEmailOwner', '==', this.email),
     );
 
-    console.log('History page ts place history:', this.placeHistoryCollection);
-
-    const pHistory = this.placeHistoryCollection.snapshotChanges().pipe(map(
-      action => {
-        return action.map(a => {
-          console.log('History page ts place history:', a);
-          console.log('History page ts place history:', a.payload.doc.data());
+    const pHistory = this.placeHistoryCollection.snapshotChanges().pipe(
+      map((action) => {
+        return action.map((a) => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
+
+          console.log('>>data address', data.address);
+          console.log('>>data placename', data.placeName);
           return { id, ...data };
         });
-      },
-    ));
+      }),
+    );
 
-    pHistory.subscribe(res => {
-      console.log(res);
+    pHistory.subscribe((res) => {
+      console.log('ini owner', res[0].placeEmailOwner);
+
       this.placeHistory = res;
     });
   }
 
   getVehicleHistory() {
-    this.vehicleHistoryCollection = this.db.collection<Bookings>('bookings', (ref) =>
-      ref.where('customerEmail', '==', this.email),
+    this.vehicleHistoryCollection = this.db.collection<Bookings>(
+      'bookings',
+      (ref) => ref.where('customerEmail', '==', this.email),
     );
 
-    console.log('History page ts vehicle history:', this.vehicleHistoryCollection);
-
-    const vHistory = this.vehicleHistoryCollection.snapshotChanges().pipe(map(
-      action => {
-        return action.map(a => {
+    const vHistory = this.vehicleHistoryCollection.snapshotChanges().pipe(
+      map((action) => {
+        return action.map((a) => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
           return { id, ...data };
         });
-      },
-    ));
+      }),
+    );
 
-    vHistory.subscribe(res => {
-      console.log(res);
+    vHistory.subscribe((res) => {
       this.vehicleHistory = res;
     });
+  }
+
+  onVehicleClick(idx: number) {
+    if (this.vehicleHistory[idx].ongoing) {
+      //   let {
+      //     placeEmailOwner,
+      //     placeId,
+      //     customerPlateNo,
+      //     vehicleType,
+      //     vehicleModel,
+      //     duration,
+      //     totalPrice,
+      //     arrivalDateTime,
+      //     createdAt,
+      //     leavingDateTime,
+      //   } = this.vehicleHistory[idx];
+      // TODO : redirect to vehicleHistoryDetail
+      // this.router.navigate([
+      //   '/', <- tinggal uncomment, ganti route detail history vehicle
+      //   'history',
+      //   'vehicle',
+      //   placeEmailOwner,
+      //   placeId,
+      //   address,
+      //   placeName,
+      //   duration,
+      //   totalPrice,
+      //   arrivalDateTime,
+      //   createdAt,
+      //   leavingDateTime,
+      // ]);
+    }
+  }
+
+  onPlaceClick(idx: number) {
+    if (this.placeHistory[idx].ongoing) {
+      // TODO : redirect to placeHistoryDetail
+      // let {
+      //   customerEmail,
+      //   customerPlateNo,
+      //   address,
+      //   placeName,
+      //   duration,
+      //   totalPrice,
+      //   arrivalDateTime,
+      //   createdAt,
+      //   leavingDateTime,
+      // } = this.placeHistory[idx];
+      //   this.router.navigate([
+      //   '/', <- tinggal uncomment, ganti route detail history vehicle
+      //     '/',
+      //     'history',
+      //     'place',
+      //     customerEmail,
+      //     customerPlateNo,
+      //     address,
+      //     placeName,
+      //     duration,
+      //     totalPrice,
+      //     arrivalDateTime,
+      //     createdAt,
+      //     leavingDateTime,
+      //   ]);
+    }
   }
 }
