@@ -8,5 +8,5 @@ export interface Bookings {
   leavingDateTime: string;
   totalPrice: string;
   createdAt: string;
-  ongoing: boolean
+  ongoing: boolean;
 }

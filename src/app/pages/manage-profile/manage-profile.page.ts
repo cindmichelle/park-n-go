@@ -3,10 +3,9 @@ import { AsyncStorageService } from '../../native/async-storage.service';
 import { UserService } from '../user.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
-// import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-// import { AngularFireModule } from '@angular/fire';
-// import { AngularFireDatabaseModule } from '@angular/fire/database';
-// import { AngularFireStorageModule } from '@angular/fire/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { storage } from 'firebase';
+
 
 @Component({
   selector: 'app-manage-profile',
@@ -28,7 +27,7 @@ export class ManageProfilePage implements OnInit {
     private asyncStorage: AsyncStorageService,
     private userService: UserService,
     private loadCtrl: LoadingController,
-    // private camera: Camera,
+    private camera: Camera,
   ) {
   }
 
@@ -64,14 +63,31 @@ export class ManageProfilePage implements OnInit {
     this.backToManage();
   }
 
-  editProfilePicture() {
-    console.log('EDIT PROFILEEEE !!!!!!!!!!!!!!');
-
-  }
-
-  async takePicture() {
+  async takePictureFromPhotoAlbum() {
     try {
-      console.log('WIP CAMERA');
+      const loading = await this.loadCtrl.create({
+        message: 'Editing your profile...',
+      });
+      await loading.present();
+      const options: CameraOptions = {
+        quality: 50,
+        targetWidth: 600,
+        targetHeight: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        correctOrientation: true,
+      };
+
+      const result = await this.camera.getPicture(options);
+
+      const img = `data:image/jpeg;base64,${result}`;
+
+      const picture = storage().ref(`profilePictures/${this.userEmail}.jpeg`);
+      picture.putString(img, 'data_url');
+
+      await loading.dismiss();
     } catch (e) {
       console.error(e);
     }
@@ -79,6 +95,5 @@ export class ManageProfilePage implements OnInit {
 
   backToManage() {
     this.navCtrl.navigateBack('tabs/profile').then(r => r);
-    console.log('wip asdasd');
   }
 }

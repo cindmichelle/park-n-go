@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserViewModel } from './../../model/user.model';
 import { UserService } from './../user.service';
+import { storage } from 'firebase';
 
 @Component({
   selector: 'app-profile',
@@ -13,23 +14,32 @@ export class ProfilePage implements OnInit {
   user!: UserViewModel;
   name = 'Sample Name';
   email = 'Sample Email';
+  profilePic: any;
+
   constructor(
-    private storage: AsyncStorageService, private router: Router, private userService: UserService) {}
+    private asyncStorage: AsyncStorageService, private router: Router, private userService: UserService) {
+  }
 
   async ngOnInit() {
-    const token: string = await this.storage.get('token');
+    const token: string = await this.asyncStorage.get('token');
     this.userService.getAllUserInfo(token);
-    // @ts-ignore
     await this.userService.getUser().subscribe((res) => {
       this.user = res[0];
       this.name = res[0].firstName + ' ' + res[0].lastName;
       this.email = res[0].email;
+      this.getProfilePicture();
       console.log('LOGGED IN USER FROM ON INIT PROFILE', this.user);
     });
   }
 
+  getProfilePicture() {
+    storage().ref().child('profilePictures/' + this.email).getDownloadURL().then((url) => {
+      this.profilePic = url;
+    });
+  }
+
   async onLogOut() {
-    await this.storage.delete('token');
+    await this.asyncStorage.delete('token');
     this.router.navigateByUrl('/auth');
   }
 }

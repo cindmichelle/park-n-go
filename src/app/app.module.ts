@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { PickLocationComponent } from './components/pick-location/pick-location.component';
 
@@ -29,6 +31,8 @@ import { PickLocationComponent } from './components/pick-location/pick-location.
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     IonicStorageModule.forRoot(),
   ],
   providers: [
