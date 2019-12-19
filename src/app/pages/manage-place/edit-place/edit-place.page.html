@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Add Place</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button slot="icon-only" (click)="backToManage()">
-        <ion-icon name="close" class="close-btn"></ion-icon>
+        <ion-icon name="arrow-back" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,42 +15,63 @@
       <ion-item class="input-container">
         <ion-label position="stacked">Area Name</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                oninput="handleFirstNameValue(event)"
-                name="areaName"
-                [(ngModel)]="areaName"
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+          name="areaName"
+          [(ngModel)]="areaName"
         ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Address</ion-label>
-        <ion-textarea required class="input" name="address" [(ngModel)]="address"></ion-textarea>
-
+        <ion-textarea
+          required
+          class="input"
+          name="address"
+          [(ngModel)]="address"
+        ></ion-textarea>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">Price per hour</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="numeric"
-                oninput="handleFirstNameValue(event)"
-                name="pricePerHour"
-                [(ngModel)]="pricePerHour"
+          class="input"
+          required
+          inputmode="numeric"
+          oninput="handleFirstNameValue(event)"
+          name="pricePerHour"
+          [(ngModel)]="pricePerHour"
         ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" (click)="editPlaceLatLng()" color="tertiary">Update Location</ion-button>
-    <ion-button expand="block" (click)="takePictureFromPhotoAlbum()" color="tertiary">Upload Place Picture</ion-button>
     <ion-button
-            expand="block"
-            type="submit"
-            class="add-btn"
-            [routerLink]="['/', 'tabs', 'parking']"
-    >Edit Place</ion-button
+      expand="block"
+      class="btn"
+      (click)="editPlaceLatLng()"
+      color="tertiary"
+      >Update Location</ion-button
     >
-    <ion-button expand="block" color="danger add-btn" (click)="deletePlaceFromDB()">Delete Place</ion-button>
+    <ion-button
+      expand="block"
+      class="btn"
+      (click)="takePictureFromPhotoAlbum()"
+      color="tertiary"
+      >Upload Place Picture</ion-button
+    >
+
+    <div class="btn-container">
+      <ion-button
+        expand="block"
+        type="submit"
+        class="edit-btn"
+        [routerLink]="['/', 'tabs', 'parking']"
+        >Edit Place</ion-button
+      >
+      <ion-button expand="block" color="danger" (click)="deletePlaceFromDB()"
+        >Delete Place</ion-button
+      >
+    </div>
   </form>
 </ion-content>

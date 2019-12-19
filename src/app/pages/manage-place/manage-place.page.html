@@ -1,40 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button
-              slot="start"
-              defaultHref="/tabs/profile"
-      ></ion-back-button>
-    </ion-buttons>
+    <ion-back-button slot="start" defaultHref="/tabs/profile"></ion-back-button>
     <ion-title>Manage Place</ion-title>
     <ion-label
-            slot="primary"
-            class="ion-padding btn"
-            (click)="addPlace()"
-            color="primary"
-    >Add</ion-label
+      slot="primary"
+      class="ion-padding btn"
+      (click)="addPlace()"
+      color="primary"
+      >Add</ion-label
     >
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div
+    *ngIf="places.length == 0"
+    style="padding-left: 16px; padding-right: 16px; display: flex; flex-direction:column; height: 90%; flex:1; justify-content: center; align-items: center;font-size: 12px;"
+  >
+    <ion-label>You don't have any place yet. Let's add your Place!</ion-label>
+  </div>
   <ion-list *ngFor="let p of places">
-    <ion-item lines="full" class="list-item" [routerLink]="['/','edit-place', p.id]">
+    <ion-item
+      lines="full"
+      class="list-item"
+      [routerLink]="['/','edit-place', p.id]"
+    >
       <div class="wrapper-place">
         <h3 class="place-name">{{ p.areaName }}</h3>
         <ion-label class="plate">{{ p.address }}</ion-label>
       </div>
       <ion-img
-              style="width: 80px; height: 80px;"
-              src="{{ p.imageUrl }}"
+        style="width: 80px; height: 80px;"
+        src="{{ p.imageUrl }}"
       ></ion-img>
     </ion-item>
   </ion-list>
-  <ion-button
-          expand="block"
-          class="add-btn"
-          color="primary"
-          (click)="addPlace()"
-  >Add Place</ion-button
-  >
 </ion-content>

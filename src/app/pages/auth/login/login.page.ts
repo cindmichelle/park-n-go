@@ -22,16 +22,13 @@ export class LoginPage implements OnInit {
     private router: Router,
     private loadCtrl: LoadingController,
     private storage: AsyncStorageService,
-  ) {
-  }
+  ) {}
 
-  async ngOnInit() {
-
-  }
+  async ngOnInit() {}
 
   async onLogin() {
     const loading = await this.loadCtrl.create({
-      message: 'Loging in . . .',
+      message: 'Logging in...',
     });
     await loading.present();
     this.authSvc.login(this.input.email, this.input.password).subscribe(

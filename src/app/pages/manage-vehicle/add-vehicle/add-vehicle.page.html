@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Add Vehicle</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button slot="icon-only" (click)="backToManage()">
-        <ion-icon name="close" class="close-btn"></ion-icon>
+        <ion-icon name="arrow-back" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -14,34 +14,43 @@
     <ion-list padding lines="full" class="ion-padding">
       <ion-item class="input-container">
         <ion-label style="font-size: 13px;">Vehicle Type</ion-label>
-        <ion-select interface="action-sheet" class="selector" name="vType" ngModel>
-          <ion-select-option value="Motorcycle" style="font-size:20px">Motorcycle</ion-select-option>
+        <ion-select
+          interface="action-sheet"
+          class="selector"
+          name="vType"
+          ngModel
+        >
+          <ion-select-option value="Motorcycle" style="font-size:20px"
+            >Motorcycle</ion-select-option
+          >
           <ion-select-option value="Car">Car</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item class="input-container">
         <ion-label position="stacked">Vehicle Model</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                oninput="handleFirstNameValue(event)"
-                name="vModel"
-                ngModel
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+          name="vModel"
+          ngModel
         ></ion-input>
       </ion-item>
       <ion-item class="input-container">
         <ion-label position="stacked">Plate Number</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                oninput="handleFirstNameValue(event)"
-                name="plateNo"
-                ngModel
+          class="input"
+          required
+          inputmode="text"
+          oninput="handleFirstNameValue(event)"
+          name="plateNo"
+          ngModel
         ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" type="submit" class="add-btn">Add Vehicle</ion-button>
+    <ion-button expand="block" type="submit" class="add-btn"
+      >Add Vehicle</ion-button
+    >
   </form>
 </ion-content>

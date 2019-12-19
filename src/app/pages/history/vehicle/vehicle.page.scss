@@ -13,6 +13,9 @@ ion-toolbar {
   background-image: url('../../../../assets/images/header.png');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 57px;
+  display: flex;
+  align-items: center;
 }
 
 ion-title {

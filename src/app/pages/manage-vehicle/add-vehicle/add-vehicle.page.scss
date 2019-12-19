@@ -32,12 +32,19 @@ ion-title {
 }
 
 .add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 18px;
   border: 1px #f17800 solid;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   border-radius: 10px;
   font-size: 18px;
   height: 52px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  font-family: 'Montserrat-Regular';
+  font-size: 12px;
 }

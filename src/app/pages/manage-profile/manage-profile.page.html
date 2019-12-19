@@ -1,12 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button
-              slot="start"
-              defaultHref="/tabs/profile"
-      ></ion-back-button>
-    </ion-buttons>
-    <ion-title>Manage Profile</ion-title>
+    <ion-back-button slot="start" defaultHref="/tabs/profile"></ion-back-button>
+    <ion-title>Edit Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,53 +11,60 @@
       <ion-item class="input-container">
         <ion-label position="stacked">Email</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                name="userEmail"
-                [(ngModel)]="userEmail"
+          class="input"
+          required
+          inputmode="text"
+          name="userEmail"
+          [(ngModel)]="userEmail"
         ></ion-input>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">First Name</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                name="userFirstName"
-                [(ngModel)]="userFirstName"
+          class="input"
+          required
+          inputmode="text"
+          name="userFirstName"
+          [(ngModel)]="userFirstName"
         ></ion-input>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">Last Name</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                name="userLastName"
-                [(ngModel)]="userLastName"
+          class="input"
+          required
+          inputmode="text"
+          name="userLastName"
+          [(ngModel)]="userLastName"
         ></ion-input>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">Phone Number</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                name="userPhoneNumber"
-                [(ngModel)]="userPhoneNumber"
+          class="input"
+          required
+          inputmode="text"
+          name="userPhoneNumber"
+          [(ngModel)]="userPhoneNumber"
         ></ion-input>
       </ion-item>
-      <ion-button expand="block" (click)="takePictureFromPhotoAlbum()" color="tertiary">Upload Profile Picture</ion-button>
       <ion-button
-              expand="block"
-              type="submit"
-              [routerLink]="['/', 'tabs', 'parking']"
-      >Edit Profile</ion-button
+        expand="block"
+        (click)="takePictureFromPhotoAlbum()"
+        color="tertiary"
+        class="btn"
+        >Upload Profile Picture</ion-button
       >
     </ion-list>
   </form>
+  <ion-button
+    expand="block"
+    type="submit"
+    class="edit-btn"
+    [routerLink]="['/', 'tabs', 'parking']"
+    >Edit Profile</ion-button
+  >
 </ion-content>

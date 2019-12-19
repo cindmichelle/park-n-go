@@ -39,8 +39,9 @@ ion-back-button {
 }
 .wrapper-vehicle {
   padding-left: 0px;
-  flex-direction: column;
-  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 74%;
 }
 .date-wrapper {
@@ -57,12 +58,14 @@ ion-back-button {
 }
 
 .plate {
-  color: #c1bcbc;
-  font-size: 12px;
+  color: #2d2d2d;
+  font-size: 14px;
+  margin: 0;
 }
 
 .change-vehicle {
-  margin-left: 30px;
+  margin-left: 10px;
+  right: -50;
 }
 
 .date {
@@ -90,6 +93,7 @@ ion-back-button {
   padding-right: 17px;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .total {

@@ -2,18 +2,25 @@
   <ion-toolbar>
     <ion-title>History</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  <ion-segment [(ngModel)]="segmentedValue">
+  <ion-segment
+    [(ngModel)]="segmentedValue"
+    style="padding: 18px; padding-top: 0px;"
+  >
     <ion-segment-button value="parking">Parking</ion-segment-button>
     <ion-segment-button value="places">Places</ion-segment-button>
   </ion-segment>
+</ion-header>
 
+<ion-content>
   <div *ngIf="segmentedValue == 'parking'">
     <div *ngIf="vehicleHistory.length > 0">
-      <ion-list *ngFor="let v of vehicleHistory; index as i">
-        <ion-item lines="full" class="list-item" (click)="onVehicleClick(i)">
+      <ion-list>
+        <ion-item
+          *ngFor="let v of vehicleHistory; index as i"
+          lines="full"
+          class="list-item"
+          (click)="onVehicleClick(i)"
+        >
           <div class="wrapper-place">
             <h3 class="place-name">{{ v.vehicleType }}</h3>
             <ion-label class="plate"
@@ -25,15 +32,23 @@
         </ion-item>
       </ion-list>
     </div>
-    <p *ngIf="vehicleHistory.length == 0" class="list">
-      There are no parking history.
-    </p>
+    <div
+      *ngIf="vehicleHistory.length == 0"
+      style="padding-left: 16px; padding-right: 16px; display: flex; flex-direction:column; height: 75vh; flex:1; justify-content: center; align-items: center;font-size: 12px;"
+    >
+      <ion-label>There are no parking history.</ion-label>
+    </div>
   </div>
 
   <div *ngIf="segmentedValue == 'places'">
     <div *ngIf="placeHistory.length > 0">
-      <ion-list *ngFor="let p of placeHistory; index as i">
-        <ion-item lines="full" class="list-item" (click)="onPlaceClick(i)">
+      <ion-list>
+        <ion-item
+          *ngFor="let p of placeHistory; index as i"
+          lines="full"
+          class="list-item"
+          (click)="onPlaceClick(i)"
+        >
           <div class="wrapper-place">
             <h3 class="place-name">{{ p.placeName }}</h3>
             <ion-label class="plate">{{ p.address }}</ion-label>
@@ -43,9 +58,12 @@
         </ion-item>
       </ion-list>
     </div>
-    <p *ngIf="placeHistory.length == 0" class="list">
-      There are no rent parking places history.
-    </p>
+    <div
+      *ngIf="placeHistory.length == 0"
+      style="padding-left: 16px; padding-right: 16px; display: flex; flex-direction:column; height: 75vh; flex:1; justify-content: center; align-items: center;font-size: 12px;"
+    >
+      <ion-label> There are no rent parking places history. </ion-label>
+    </div>
   </div>
 
   <!-- <div [ngSwitch]="segmentedValue">

@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Add Place</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button slot="icon-only" (click)="backToManage()">
-        <ion-icon name="close" class="close-btn"></ion-icon>
+        <ion-icon name="arrow-back" class="close-btn"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,41 +15,53 @@
       <ion-item class="input-container">
         <ion-label position="stacked">Area Name</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="text"
-                name="areaName"
-                ngModel
+          class="input"
+          required
+          inputmode="text"
+          name="areaName"
+          ngModel
         ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Address</ion-label>
-        <ion-textarea required class="input" name="address" ngModel></ion-textarea>
-
+        <ion-textarea
+          required
+          class="input"
+          name="address"
+          ngModel
+        ></ion-textarea>
       </ion-item>
 
       <ion-item class="input-container">
         <ion-label position="stacked">Price per hour</ion-label>
         <ion-input
-                class="input"
-                required
-                inputmode="numeric"
-                name="pricePerHour"
-                ngModel
+          class="input"
+          required
+          inputmode="numeric"
+          name="pricePerHour"
+          ngModel
         ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" (click)="addPlaceLatLng()">Set Location on Map</ion-button>
-    <ion-button expand="block" (click)="takePictureFromPhotoAlbum()" color="tertiary">Upload Place Picture</ion-button>
+    <ion-button expand="block" (click)="addPlaceLatLng()" class="btn"
+      >Set Location on Map</ion-button
+    >
     <ion-button
-            expand="block"
-            type="submit"
-            class="add-btn"
-            [routerLink]="['/', 'account', 'manage-place']"
-            (click)="addPlaceToDB()"
-            [disabled]="!locLatLng"
-    >Add Place</ion-button
+      expand="block"
+      (click)="takePictureFromPhotoAlbum()"
+      color="tertiary"
+      class="btn"
+      >Upload Place Picture</ion-button
+    >
+    <ion-button
+      expand="block"
+      type="submit"
+      class="add-btn"
+      [routerLink]="['/', 'account', 'manage-place']"
+      (click)="addPlaceToDB()"
+      [disabled]="!locLatLng"
+      >Add Place</ion-button
     >
   </form>
 </ion-content>

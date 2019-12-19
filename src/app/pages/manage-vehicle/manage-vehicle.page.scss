@@ -68,6 +68,11 @@ ion-title {
 }
 
 .add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 18px;
   margin-left: 18px;
   margin-right: 18px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);

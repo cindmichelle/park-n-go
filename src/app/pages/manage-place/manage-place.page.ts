@@ -11,15 +11,14 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./manage-place.page.scss'],
 })
 export class ManagePlacePage implements OnInit {
-
-  places: PlaceViewModel[] | undefined;
+  places: PlaceViewModel[] = [];
 
   constructor(
     private routeCtrl: Router,
     private placeService: ManagePlaceService,
     private storage: AsyncStorageService,
-    private loadCtrl: LoadingController) {
-  }
+    private loadCtrl: LoadingController,
+  ) {}
 
   async ngOnInit() {
     const loading = await this.loadCtrl.create({
@@ -28,7 +27,7 @@ export class ManagePlacePage implements OnInit {
     await loading.present();
 
     const email = await this.storage.get('token');
-    this.placeService.getMyPlaces(email).subscribe(res => {
+    this.placeService.getMyPlaces(email).subscribe((res) => {
       this.places = res;
       console.log(this.places);
     });
@@ -42,6 +41,4 @@ export class ManagePlacePage implements OnInit {
     console.log('Add button clicked!');
     this.routeCtrl.navigateByUrl('/add-place');
   }
-
-
 }

@@ -32,11 +32,15 @@ ion-title {
 }
 
 .add-btn {
-  border: 1px #f17800 solid;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 18px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  height: 52px;
+  border: 1px #f17800 solid;
   font-size: 18px;
   height: 52px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);

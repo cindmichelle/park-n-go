@@ -35,8 +35,8 @@ export class VehiclePage implements OnInit {
   plateNo!: string;
   vehicleType!: string;
   vehicleModel!: string;
-  duration;
-  price;
+  duration!: number;
+  price!: number;
   arrivalTime!: Date;
   leavingTime!: Date;
   createdAt!: Date;
@@ -44,8 +44,6 @@ export class VehiclePage implements OnInit {
   arrivalTimeString!: string;
   leavingTimeString!: string;
   createdAtString!: string;
-  bookId!: string;
-
   placeDetail: PlaceViewModel = placeInitialValue;
   ownerDetail: UserViewModel = userViewModelinitialValue;
   ngOnInit() {}
@@ -64,8 +62,8 @@ export class VehiclePage implements OnInit {
         this.plateNo = paramMap.get('vehiclePlateNo') || '';
         this.vehicleType = paramMap.get('vehicleType') || '';
         this.vehicleModel = paramMap.get('vehicleModel') || '';
-        this.duration = paramMap.get('duration') || '';
-        this.price = paramMap.get('price') || '';
+        this.duration = Number(paramMap.get('duration')) || 0;
+        this.price = Number(paramMap.get('price')) || 0;
 
         const arrTime = paramMap.get('arrivalTime') || '';
         const leavingTime = paramMap.get('leavingTime') || '';
