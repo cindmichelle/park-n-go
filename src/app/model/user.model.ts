@@ -8,3 +8,11 @@ export interface User {
 export type UserViewModel = User & {
   id: string;
 };
+
+export const userViewModelinitialValue: UserViewModel = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNo: '',
+  id: '',
+};

@@ -14,7 +14,17 @@ const routes: Routes = [
       },
       {
         path: 'history',
-        loadChildren: '../history/history.module#HistoryPageModule',
+        children: [
+          {
+            path: '',
+            loadChildren: '../history/history.module#HistoryPageModule',
+          },
+          {
+            path:
+              'vehicle/:bookId/:ownerId/:placeId/:vehiclePlateNo/:vehicleType/:vehicleModel/:duration/:price/:arrivalTime/:leavingTime/:createdAt',
+            loadChildren: '../history/vehicle/vehicle.module#VehiclePageModule',
+          },
+        ],
       },
 
       {

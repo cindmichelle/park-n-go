@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HistoryPage } from './history.page';
+import { VehiclePage } from './vehicle.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HistoryPage,
-  },
+    component: VehiclePage
+  }
 ];
 
 @NgModule({
@@ -19,8 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-  declarations: [HistoryPage],
+  declarations: [VehiclePage]
 })
-export class HistoryPageModule {}
+export class VehiclePageModule {}

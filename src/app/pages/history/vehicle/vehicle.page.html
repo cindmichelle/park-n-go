@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button
+        slot="start"
+        defaultHref="/tabs/history"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{plateNo}} - {{vehicleModel}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full">
+    <div class="item-container">
+      <ion-label class="caption">Created At</ion-label>
+      <ion-label class="value">{{createdAtString}}</ion-label>
+    </div>
+  </ion-item>
+  <ion-list lines="full" style="margin-bottom: 10px;">
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Vehicle Type</ion-label>
+        <ion-label class="value">{{vehicleType}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Place Name</ion-label>
+        <ion-label class="value">{{placeDetail.areaName}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Address</ion-label>
+        <ion-label class="value">{{placeDetail.address}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Owner Name</ion-label>
+        <ion-label class="value"
+          >{{ownerDetail.firstName}} {{ownerDetail.lastName}}</ion-label
+        >
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Phone No.</ion-label>
+        <ion-label class="value">{{ownerDetail.phoneNo}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Arrival Time</ion-label>
+        <ion-label class="value">{{arrivalTimeString}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Leaving Time</ion-label>
+        <ion-label class="value">{{leavingTimeString}}</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Duration </ion-label>
+        <ion-label class="value"
+          >{{duration}} <b *ngIf="duration ==1">Hour</b>
+          <b *ngIf="duration !=1">Hours</b></ion-label
+        >
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-container">
+        <ion-label class="caption">Price</ion-label>
+        <ion-label class="value">{{price}}</ion-label>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div
+    class="item-container"
+    style="padding-left: 16px; padding-right: 16px;margin-bottom: 20px;"
+  >
+    <ion-label class="caption ">Location</ion-label>
+    <div class="maps-wrapper" (click)="navigateToMap()">
+      <img src="../../../../assets/images/maps.jpeg" class="placeholder-maps" />
+      <div class="overlay">
+        <h6 class="place">{{placeDetail.areaName}}</h6>
+        <h6 class="navigate">Click to navigate</h6>
+      </div>
+    </div>
+  </div>
+  <ion-button
+    style="margin-left: 16px; margin-right: 16px; margin-bottom: 10px;"
+    expand="block"
+    class="btn"
+    (click)="finishBooking()"
+    >Finish Parking</ion-button
+  >
+</ion-content>

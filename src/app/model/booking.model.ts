@@ -15,4 +15,6 @@ export interface Bookings {
   vehicleType: string;
 }
 
+export type BookingViewModel = Bookings & { id: string };
+
 // jenis kendaraan, nama kendaraan, nama tempat, alamat,

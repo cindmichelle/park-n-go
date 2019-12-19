@@ -1,3 +1,4 @@
+import { BookingViewModel } from './../../model/booking.model';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AsyncStorageService } from '../../native/async-storage.service';
@@ -21,11 +22,9 @@ export class HistoryPage implements OnInit {
   private email!: string;
   private placeHistoryCollection!: AngularFirestoreCollection<Bookings>;
   private vehicleHistoryCollection!: AngularFirestoreCollection<Bookings>;
-  placeHistory: Bookings[] = [];
-  vehicleHistory: Bookings[] = [];
+  placeHistory: BookingViewModel[] = [];
+  vehicleHistory: BookingViewModel[] = [];
   address!: string;
-
-  // private historyPlace!: any;
 
   constructor(
     private storage: AsyncStorageService,
@@ -56,8 +55,6 @@ export class HistoryPage implements OnInit {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
 
-          console.log('>>data address', data.address);
-          console.log('>>data placename', data.placeName);
           return { id, ...data };
         });
       }),
@@ -93,33 +90,37 @@ export class HistoryPage implements OnInit {
 
   onVehicleClick(idx: number) {
     if (this.vehicleHistory[idx].ongoing) {
-      //   let {
-      //     placeEmailOwner,
-      //     placeId,
-      //     customerPlateNo,
-      //     vehicleType,
-      //     vehicleModel,
-      //     duration,
-      //     totalPrice,
-      //     arrivalDateTime,
-      //     createdAt,
-      //     leavingDateTime,
-      //   } = this.vehicleHistory[idx];
-      // TODO : redirect to vehicleHistoryDetail
-      // this.router.navigate([
-      //   '/', <- tinggal uncomment, ganti route detail history vehicle
-      //   'history',
-      //   'vehicle',
-      //   placeEmailOwner,
-      //   placeId,
-      //   address,
-      //   placeName,
-      //   duration,
-      //   totalPrice,
-      //   arrivalDateTime,
-      //   createdAt,
-      //   leavingDateTime,
-      // ]);
+      const {
+        placeEmailOwner,
+        placeId,
+        customerPlateNo,
+        vehicleType,
+        vehicleModel,
+        duration,
+        totalPrice,
+        arrivalDateTime,
+        leavingDateTime,
+        createdAt,
+        id: bookId,
+      } = this.vehicleHistory[idx];
+
+      this.router.navigate([
+        '/',
+        'tabs',
+        'history',
+        'vehicle',
+        bookId,
+        placeEmailOwner,
+        placeId,
+        customerPlateNo,
+        vehicleType,
+        vehicleModel,
+        duration,
+        totalPrice,
+        arrivalDateTime,
+        leavingDateTime,
+        createdAt,
+      ]);
     }
   }
 
