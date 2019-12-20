@@ -21,23 +21,25 @@ export class ProfilePage implements OnInit {
   }
 
   async ngOnInit() {
+
+  }
+
+  async ionViewWillEnter() {
     const token: string = await this.asyncStorage.get('token');
     this.userService.getAllUserInfo(token);
     await this.userService.getUser().subscribe((res) => {
       this.user = res[0];
       this.name = res[0].firstName + ' ' + res[0].lastName;
-      this.email = res[0].email;
+      this.email = token;
       // this.getProfilePicture();
       console.log('LOGGED IN USER FROM ON INIT PROFILE', this.user);
     });
-  }
 
-  ionViewDidEnter() {
     this.getProfilePicture();
   }
 
   getProfilePicture() {
-    storage().ref().child('profilePictures/' + this.email).getDownloadURL().then((url) => {
+    storage().ref().child('profilePictures/' + this.email + '.jpg').getDownloadURL().then((url) => {
       console.log(url)
       this.profilePic = url;
     });

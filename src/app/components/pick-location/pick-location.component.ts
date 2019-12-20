@@ -17,8 +17,8 @@ export class PickLocationComponent implements OnInit {
   map!: GoogleMap;
   private placeLocation!: any;
   mapClick = false;
-  locLat: any;
-  locLong: any;
+  locLat = 0;
+  locLong = 0;
 
   constructor(
     private platform: Platform,
@@ -28,68 +28,83 @@ export class PickLocationComponent implements OnInit {
   }
 
   async ngOnInit() {
+  }
+
+  async ionViewWillEnter() {
     await this.platform.ready();
     await this.loadMapForLoc();
   }
 
   async loadMapForLoc() {
-    Environment.setEnv({
-      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
-      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
-    });
-
-    await this.geoLoc.getCurrentPosition()
-      .then((resp) => {
-        this.locLat = resp.coords.latitude;
-        this.locLong = resp.coords.longitude;
-      })
-      .catch((error: any) => {
-        console.error('Error getting location', error);
+    try {
+      console.log('pick location component 1');
+      Environment.setEnv({
+        API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
+        API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAs-bPFk39cMX-gV34ksx3MrLXpcviS1NQ',
       });
 
-    const mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: this.locLat,
-          lng: this.locLong,
-        },
-        zoom: 18,
-        tilt: 30,
-      },
-    };
+      await this.geoLoc.getCurrentPosition()
+        .then((resp) => {
+          this.locLat = resp.coords.latitude;
+          this.locLong = resp.coords.longitude;
 
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
-    this.map.on(GoogleMapsEvent.CAMERA_MOVE).subscribe(() => {
-      // console.log(loc.lat, loc.lng);
-      // @ts-ignore
-      const lat = this.map.getCameraPosition().target.lat;
-      // @ts-ignore
-      const lng = this.map.getCameraPosition().target.lng;
-      console.log('pick-location component ts', this.map.getCameraPosition().target);
-      console.log('pick-location component ts', lat, lng);
-    });
+          console.log('pick location component 2');
+          const mapOptions: GoogleMapOptions = {
+            camera: {
+              target: {
+                lat: this.locLat,
+                lng: this.locLong,
+              },
+              zoom: 18,
+              tilt: 30,
+            },
+          };
+          console.log(this.locLat, this.locLong);
 
-    this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe((loc) => {
-      this.mapClick = true;
-      console.log('loc', loc);
-      console.log('loc[0]', loc[0]);
-      console.log('loc[0].lat', loc[0].lat);
-      // console.log(loc[0].LatLng.lat, loc[0].LatLng.lng);
-      this.map.clear().then(() => {
-        this.placeLocation = {
-          lat: loc[0].lat,
-          lng: loc[0].lng,
-        };
-        const marker: Marker = this.map.addMarkerSync({
-          title: 'Selected Location',
-          position: {
-            lat: loc[0].lat,
-            lng: loc[0].lng,
-          },
+          console.log('pick location component 3');
+          this.map = GoogleMaps.create('map_canvas2', mapOptions);
+          console.log('Component Map', (this.map as unknown as string));
+
+          this.map.on(GoogleMapsEvent.CAMERA_MOVE).subscribe(() => {
+            console.log('pick location component 4');
+            // console.log(loc.lat, loc.lng);
+            // @ts-ignore
+            const lat = this.map.getCameraPosition().target.lat;
+            // @ts-ignore
+            const lng = this.map.getCameraPosition().target.lng;
+            console.log('pick-location component ts', this.map.getCameraPosition().target);
+            console.log('pick-location component ts', lat, lng);
+          });
+
+          this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe(async (loc) => {
+            console.log('pick location component 5');
+            this.mapClick = true;
+            console.log('loc', loc);
+            console.log('loc[0]', loc[0]);
+            console.log('loc[0].lat', loc[0].lat);
+            // console.log(loc[0].LatLng.lat, loc[0].LatLng.lng);
+            await this.map.clear().then(() => {
+              this.placeLocation = {
+                lat: loc[0].lat,
+                lng: loc[0].lng,
+              };
+              const marker: Marker = this.map.addMarkerSync({
+                title: 'Selected Location',
+                position: {
+                  lat: loc[0].lat,
+                  lng: loc[0].lng,
+                },
+              });
+              marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe();
+            });
+          });
+        })
+        .catch((error: any) => {
+          console.error('Error getting location', error);
         });
-        marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe();
-      });
-    });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   setLocation() {

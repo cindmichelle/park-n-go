@@ -55,7 +55,7 @@ export class HomePage implements OnInit {
     private ngZone: NgZone,
   ) {}
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     const token: string = await this.storage.get('token');
     this.userService.getAllUserInfo(token);
     // @ts-ignore
@@ -132,6 +132,7 @@ export class HomePage implements OnInit {
     };
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
+    console.log('Home Map', this.map as unknown as string);
 
     const currMarker: Marker = await this.map.addMarkerSync({
       title: 'Current Location',
