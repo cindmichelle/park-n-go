@@ -17,8 +17,10 @@ export class ProfilePage implements OnInit {
   profilePic = 'https://www.freeiconspng.com/uploads/no-image-icon-11.PNG';
 
   constructor(
-    private asyncStorage: AsyncStorageService, private router: Router, private userService: UserService) {
-  }
+    private asyncStorage: AsyncStorageService,
+    private router: Router,
+    private userService: UserService,
+  ) {}
 
   async ngOnInit() {
     const token: string = await this.asyncStorage.get('token');
@@ -32,15 +34,19 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.getProfilePicture();
   }
 
   getProfilePicture() {
-    storage().ref().child('profilePictures/' + this.email).getDownloadURL().then((url) => {
-      console.log(url)
-      this.profilePic = url;
-    });
+    storage()
+      .ref()
+      .child('profilePictures/' + this.email)
+      .getDownloadURL()
+      .then((url) => {
+        console.log(url);
+        this.profilePic = url;
+      });
   }
 
   async onLogOut() {

@@ -1,5 +1,6 @@
 import {
-  ActionSheetController, LoadingController,
+  ActionSheetController,
+  LoadingController,
   ModalController,
   NavController,
 } from '@ionic/angular';
@@ -68,10 +69,9 @@ export class BookingPage implements OnInit {
     private modalCtrl: ModalController,
     private placeSvc: ManagePlaceService,
     private loadCtrl: LoadingController,
-  ) {
-  }
+  ) {}
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       if (!paramMap.has('id')) {
         this.backToHome();
@@ -199,7 +199,10 @@ export class BookingPage implements OnInit {
       });
 
       await this.placeSvc.updateBookedPlace(this.placeId, this.placeBooked);
-      await this.vehicleSvc.updateVehicleStatus(this.vehicleId, this.vehicleParked);
+      await this.vehicleSvc.updateVehicleStatus(
+        this.vehicleId,
+        this.vehicleParked,
+      );
 
       console.log('>> db response: ', res);
 

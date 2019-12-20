@@ -8,7 +8,7 @@
   height: 100%;
 }
 
-#map_canvas{
+#map_canvas {
   height: 100%;
   top: 0;
   bottom: 0;
@@ -17,11 +17,15 @@
   //background-color: red;
 }
 
-.bottom_button{
+.bottom_button {
   position: fixed;
   bottom: 20px;
   right: 0;
   left: 0;
   margin-left: 15px;
   margin-right: 15px;
+}
+
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: transparent !important;
 }

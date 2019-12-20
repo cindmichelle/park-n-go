@@ -11,7 +11,6 @@ import { DAY_NAME, MONTH_NAME } from '../../../model/time.model';
   styleUrls: ['./place.page.scss'],
 })
 export class PlacePage implements OnInit {
-
   // Place
   placeAddress = '';
   placeName = '';
@@ -40,8 +39,7 @@ export class PlacePage implements OnInit {
     private navCtrl: NavController,
     private firestore: AngularFirestore,
     private loadCtrl: LoadingController,
-  ) {
-  }
+  ) {}
 
   async ngOnInit() {
     const loading = await this.loadCtrl.create({
@@ -49,27 +47,31 @@ export class PlacePage implements OnInit {
     });
     await loading.present();
 
-    await this.activatedRoute.paramMap.subscribe(paramMap => {
+    await this.activatedRoute.paramMap.subscribe((paramMap) => {
       if (!paramMap.has('custEmail')) {
         this.backToHistory();
       }
 
       // Customer
       this.customerEmail = paramMap.get('custEmail') + '';
-      this.firestore.collection<User>('users/', ref =>
-        ref.where('email', '==', this.customerEmail),
-      ).valueChanges().pipe().subscribe(res => {
-        res.map(a => {
-          // this.userInfo = a; // Bisa diakses, tp undefined ?
-          console.log('userInfo', a);
+      this.firestore
+        .collection<User>('users/', (ref) =>
+          ref.where('email', '==', this.customerEmail),
+        )
+        .valueChanges()
+        .pipe()
+        .subscribe((res) => {
+          res.map((a) => {
+            // this.userInfo = a; // Bisa diakses, tp undefined ?
+            console.log('userInfo', a);
 
-          this.customerFirstName = a.firstName;
-          this.customerLastName = a.lastName;
-          this.customerFullName = a.firstName + ' ' + a.lastName;
-          this.customerPhoneNo = a.phoneNo;
-          this.customerEmail = a.email;
+            this.customerFirstName = a.firstName;
+            this.customerLastName = a.lastName;
+            this.customerFullName = a.firstName + ' ' + a.lastName;
+            this.customerPhoneNo = a.phoneNo;
+            this.customerEmail = a.email;
+          });
         });
-      });
 
       // Vehicle
       this.vehiclePlateNo = paramMap.get('vehiclePlateNo') + '';
@@ -109,18 +111,12 @@ export class PlacePage implements OnInit {
       }, ${tempCreatedAt.getDate()} ${
         MONTH_NAME[tempCreatedAt.getMonth()]
       } ${tempCreatedAt.getFullYear()}, ${tempCreatedAt.getHours()}:${tempCreatedAt.getMinutes()} WIB`;
-
     });
 
     await loading.dismiss();
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter', this.placeName);
-    console.log('ionViewDidEnter', this.customerFullName);
-  }
-
   backToHistory() {
-    this.navCtrl.navigateBack('tabs/history').then(r => r);
+    this.navCtrl.navigateBack('tabs/history').then((r) => r);
   }
 }

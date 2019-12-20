@@ -33,8 +33,7 @@ export class VehiclePage implements OnInit {
     private vehicleSvc: ManageVehicleService,
     private placeSvc: ManagePlaceService,
     private loadCtrl: LoadingController,
-  ) {
-  }
+  ) {}
 
   token!: string;
   ownerId!: string;
@@ -57,10 +56,9 @@ export class VehiclePage implements OnInit {
   placeDetail: PlaceViewModel = placeInitialValue;
   ownerDetail: UserViewModel = userViewModelinitialValue;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       if (
         paramMap.has('bookId') &&
@@ -161,7 +159,7 @@ export class VehiclePage implements OnInit {
 
   async finishBooking() {
     const loading = await this.loadCtrl.create({
-      message: 'Finishing your parking...'
+      message: 'Finishing your parking...',
     });
     await loading.present();
     try {

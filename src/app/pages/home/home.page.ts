@@ -55,7 +55,7 @@ export class HomePage implements OnInit {
     private ngZone: NgZone,
   ) {}
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     const token: string = await this.storage.get('token');
     this.userService.getAllUserInfo(token);
     // @ts-ignore
@@ -143,7 +143,7 @@ export class HomePage implements OnInit {
       },
     });
 
-    this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe( () => {
+    this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe(() => {
       this.ngZone.run(() => (this.cardVisible = false));
     });
 

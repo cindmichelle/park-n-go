@@ -36,7 +36,7 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() {}
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     this.email = await this.storage.get('token');
 
     await this.getPlaceHistory();
@@ -132,9 +132,16 @@ export class HistoryPage implements OnInit {
     if (this.placeHistory[idx].ongoing) {
       const {
         customerEmail,
-        customerPlateNo, vehicleModel, vehicleType,
-        address, placeName,
-        duration, totalPrice, arrivalDateTime, createdAt, leavingDateTime,
+        customerPlateNo,
+        vehicleModel,
+        vehicleType,
+        address,
+        placeName,
+        duration,
+        totalPrice,
+        arrivalDateTime,
+        createdAt,
+        leavingDateTime,
       } = this.placeHistory[idx];
       this.router.navigate([
         '/',
@@ -142,9 +149,16 @@ export class HistoryPage implements OnInit {
         'history',
         'place',
         customerEmail,
-        customerPlateNo, vehicleModel, vehicleType,
-        address, placeName,
-        duration, totalPrice, arrivalDateTime, createdAt, leavingDateTime,
+        customerPlateNo,
+        vehicleModel,
+        vehicleType,
+        address,
+        placeName,
+        duration,
+        totalPrice,
+        arrivalDateTime,
+        createdAt,
+        leavingDateTime,
       ]);
     }
   }
